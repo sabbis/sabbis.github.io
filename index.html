@@ -1,107 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sabbi Games</title>
-
-  <!-- Icon set (Font Awesome Free via CDN) -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
-
+  <meta charset="UTF-8">
+  <title>Crazy Way</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root { --bar-h: 56px; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      line-height: 1.4;
-      color: #eaeaea;
-      background: #fbfbfb;
-      /* keep content below the fixed top bar */
-      padding-top: var(--bar-h);
+    /* Reset and global styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; font-family: "Tw Cen MT Condensed", "Arial Narrow", sans-serif; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: #000; color: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 20px; z-index: 1000;
+    }
+    header .logo a {
+      font-size: 1.2rem; font-weight: bold;
+    }
+    header .social-icons img {
+      width: 24px; height: 24px; margin-left: 15px;
+      /* Animation for icons */
+      transform: scale(0);
+      animation: scaleUp 0.5s ease forwards;
     }
 
-    /* Top bar */
-    .top-bar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--bar-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      background: #000;
-      color: #fff;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      z-index: 1000;
+    /* Hero Section */
+    #hero {
+      background: #000; color: #fff;
+      padding-top: 80px; /* space for fixed header */
+      text-align: center;
+    }
+    #hero .logo-img {
+      width: 150px; /* adjust as needed */
+      margin-top: -40px; /* overlap into header */
+    }
+    #hero .game-title {
+      font-size: 3rem; margin-top: 20px;
+      opacity: 0;
+      animation: slideUp 0.8s ease-out forwards;
     }
 
-    .brand {
-      font-weight: 800;
-      letter-spacing: .3px;
-      font-size: clamp(16px, 2.2vw, 22px);
+    /* Intro Section */
+    #intro, #feature {
+      display: flex; align-items: center;
+      padding: 40px 20px;
+    }
+    #intro .text, #feature .text {
+      flex: 1; padding: 10px;
+      font-size: 1rem; line-height: 1.5;
+    }
+    #intro .image, #feature .image {
+      flex: 1; padding: 10px; text-align: center;
+    }
+    #intro .image img, #feature .image img {
+      max-width: 100%; height: auto;
+    }
+    /* Reverse order for feature section */
+    #feature { flex-direction: row-reverse; }
+
+    /* Screenshots Section */
+    #screenshots img {
+      width: 100%; height: auto;
+      display: block;
     }
 
-    .brand a { color: inherit; text-decoration: none; }
-
-    /* Social icons */
-    .social { display: flex; align-items: center; gap: 14px; }
-    .social a {
-      display: inline-flex;
-      align-items: center; justify-content: center;
-      width: 34px; height: 34px;
-      text-decoration: none;
-      border-radius: 999px;
-      opacity: .9;
-      transition: transform .15s ease, opacity .15s ease;
-      color: #fff;
+    /* Release Section */
+    #release {
+      text-align: center; padding: 40px 20px;
     }
-    .social a:hover { opacity: 1; transform: translateY(-1px); }
-    .social i { font-size: 20px; }
+    #release p {
+      font-size: 1.2rem; margin: 10px 0;
+    }
+    #release .social-icons {
+      margin-top: 20px;
+    }
+    #release .social-icons img {
+      width: 32px; height: 32px; margin: 0 10px;
+      transform: scale(0);
+      animation: scaleUp 0.5s ease 0.3s forwards;
+    }
 
-    /* Page content just so you can see the bar working */
-    main { padding: 24px 16px; max-width: 1000px; margin: 0 auto; }
+    /* Responsive (mobile) */
+    @media (max-width: 768px) {
+      #intro, #feature {
+        flex-direction: column;
+      }
+      header { padding: 10px; }
+      #hero .game-title { font-size: 2.5rem; }
+      header .social-icons img { margin-left: 10px; width: 20px; height: 20px; }
+      #release .social-icons img { width: 28px; height: 28px; }
+    }
 
-    /* Small screens */
-    @media (max-width: 420px) {
-      :root { --bar-h: 52px; }
-      .social { gap: 10px; }
-      .social i { font-size: 18px; }
-      .social a { width: 30px; height: 30px; }
+    /* Animations */
+    @keyframes scaleUp {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <header class="top-bar">
-    <div class="brand"><a href="/">Sabbi Games</a></div>
 
-    <nav class="social" aria-label="Social links">
-      <!-- Replace the href values with your real links -->
-      <a href="https://twitter.com/YOUR_HANDLE" aria-label="Twitter" target="_blank" rel="noopener">
-        <i class="fa-brands fa-twitter"></i>
-      </a>
-      <a href="https://www.youtube.com/@YOUR_CHANNEL" aria-label="YouTube" target="_blank" rel="noopener">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
-      <a href="https://discord.gg/YOUR_INVITE" aria-label="Discord" target="_blank" rel="noopener">
-        <i class="fa-brands fa-discord"></i>
-      </a>
-      <a href="https://instagram.com/YOUR_HANDLE" aria-label="Instagram" target="_blank" rel="noopener">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://tiktok.com/@YOUR_HANDLE" aria-label="TikTok" target="_blank" rel="noopener">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
-    </nav>
+  <header>
+    <div class="logo"><a href="https://sabbiagames.com" target="_blank">Sabbi Games</a></div>
+    <div class="social-icons">
+      <!-- Replace YOUR_LINK with actual icon URLs -->
+      <a href="#"><img src="YOUR_LINK" alt="YouTube"></a>
+      <a href="#"><img src="YOUR_LINK" alt="Instagram"></a>
+      <a href="#"><img src="YOUR_LINK" alt="TikTok"></a>
+    </div>
   </header>
 
-  <main>
-    <h1>Welcome</h1>
-    <p>Replace this with your page content. The top bar stays fixed and the page body is padded so nothing hides under it.</p>
-    <p>Tip: change the icon size by editing <code>.social i { font-size: 20px; }</code> (try 18–24).</p>
-    <div style="height: 1200px"></div>
-  </main>
+  <!-- Hero Section -->
+  <section id="hero">
+    <img src="YOUR_LINK" alt="Game Logo" class="logo-img">
+    <h1 class="game-title">CRAZY WAY</h1>
+  </section>
+
+  <!-- Intro Section (Text left, image right) -->
+  <section id="intro">
+    <div class="text">
+      Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
+    </div>
+    <div class="image">
+      <img src="YOUR_LINK" alt="Hand with Game">
+    </div>
+  </section>
+
+  <!-- Feature Section (Image left, text right) -->
+  <section id="feature">
+    <div class="image">
+      <img src="YOUR_LINK" alt="Feature Image">
+    </div>
+    <div class="text">
+      <!-- TODO: Replace this with your feature text -->
+      Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal...
+    </div>
+  </section>
+
+  <!-- Screenshots Section (Full-width image) -->
+  <section id="screenshots">
+    <img src="YOUR_LINK" alt="Screenshots from the game">
+  </section>
+
+  <!-- Release Section -->
+  <section id="release">
+    <p>THE GAME WILL BE RELEASED ON ANDROID IN SEPTEMBER</p>
+    <p>FOLLOW ME IF YOU DON’T WANT TO MISS!</p>
+    <div class="social-icons">
+      <a href="#"><img src="YOUR_LINK" alt="YouTube"></a>
+      <a href="#"><img src="YOUR_LINK" alt="Instagram"></a>
+      <a href="#"><img src="YOUR_LINK" alt="TikTok"></a>
+    </div>
+  </section>
+
 </body>
 </html>
-
