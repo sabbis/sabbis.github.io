@@ -196,8 +196,17 @@ html, body {
     /* Stack sections */
     .section { flex-direction: column; text-align: center; }
 
+   .section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
     /* Make description text larger x2 on phones */
     .section p { font-size: calc(1.9em * 0.9); }
+
+   .section.reverse {
+        flex-direction: column !important; /* override reverse for mobile */
+    }
 
     /* Scale down background text rows */
     .bg-text-row { 
@@ -276,6 +285,7 @@ html, body {
 
 </body>
 </html>
+
 
 
 
