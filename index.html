@@ -68,7 +68,7 @@ html, body {
     margin-top: 60px; /* space for navbar */
     position: relative;
     height: 350px;
-    overflow: hidden;
+    overflow: visible;
     background-color: black;
 }
 
@@ -90,7 +90,7 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    max-width: 420px;
+    max-width: 400px;
 }
 
 /* ===========================
@@ -166,18 +166,6 @@ html, body {
     .bg-text-row { font-size: 30px; }
 }
 
-/* ===========================
-   SCROLL ANIMATIONS
-   =========================== */
-@keyframes scrollRight {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-@keyframes scrollLeft {
-    0% { left: 100%; }
-    100% { left: -100%; }
-}
 </style>
 </head>
 <body>
@@ -238,3 +226,4 @@ html, body {
 
 </body>
 </html>
+
