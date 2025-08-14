@@ -1,234 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabbi Games - Crazy Way</title>
-    <style>
-        /* ===== General Page Settings ===== */
-        body {
-            margin: 0;
-            font-family: 'Tw Cen MT Condensed', sans-serif;
-            background-color: white;
-            color: black;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabbi Games - Crazy Way</title>
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+<!-- Google Fonts (closest to Tw Cen MT Condensed) -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 
-        /* ===== Top Black Navigation Panel ===== */
-        .top-panel {
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .top-panel .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        .social-icons img {
-            width: 28px;
-            margin-left: 15px;
-        }
+<style>
+/* ===========================
+   GLOBAL STYLES
+   =========================== */
 
-        /* ===== Hero Section ===== */
-        .hero {
-            position: relative;
-            text-align: center;
-            overflow: hidden;
-            padding: 100px 20px 60px;
-        }
+/* Remove horizontal scrolling */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Oswald', sans-serif;
+    background-color: white;
+    color: black;
+}
 
-        /* Background moving text rows */
-        .bg-text-row {
-            position: absolute;
-            white-space: nowrap;
-            font-size: 60px;
-            opacity: 0.8;
-            color: black;
-            display: inline-block;
-            width: max-content;
-        }
-        .bg-text-row span {
-            display: inline-block;
-            padding-right: 50px;
-        }
-        .bg-text-row:nth-child(1) {
-            top: 0px;
-            animation: scrollRight 20s linear infinite;
-        }
-        .bg-text-row:nth-child(2) {
-            top: 60px;
-            animation: scrollLeft 20s linear infinite;
-        }
-        .bg-text-row:nth-child(3) {
-            top: 120px;
-            animation: scrollRight 20s linear infinite;
-        }
+/* Utility class to center content */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        @keyframes scrollRight {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes scrollLeft {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
+/* ===========================
+   TOP BLACK NAVBAR
+   =========================== */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
 
-        /* Logo in the center over background text */
-        .hero-logo {
-            position: relative;
-            z-index: 2;
-            max-width: 200px;
-            margin-top: 20px;
-        }
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
 
-        /* Game Title */
-        .game-title {
-            font-size: 4em; /* 2x bigger than first version */
-            margin-top: 20px;
-            animation: slideUp 1s ease-out;
-        }
+.nav-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
 
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+.nav-icons img:hover {
+    transform: scale(1.2);
+}
 
-        /* ===== Sections for Text and Images ===== */
-        .section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 10%;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+/* ===========================
+   HERO SECTION (LOGO + BACKGROUND TEXT)
+   =========================== */
+.hero {
+    margin-top: 60px; /* space for navbar */
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    background-color: black;
+}
 
-        .section img {
-            max-width: 400px;
-            width: 100%;
-        }
+/* Background text rows */
+.bg-text-row {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 60px;
+    opacity: 0.8;
+    color: white;
+}
 
-        /* Description text size (scaled for desktop) */
-        .description {
-            font-size: 1.9em; /* ~3.8x bigger than first version */
-            max-width: 500px;
-        }
+.bg-text-row:nth-child(1) {
+    top: 40px;
+    animation: scrollRight 20s linear infinite;
+}
 
-        /* Alternate layout */
-        .section.reverse {
-            flex-direction: row-reverse;
-        }
+.bg-text-row:nth-child(2) {
+    top: 120px;
+    animation: scrollLeft 20s linear infinite;
+}
 
-        /* Full-width separator image */
-        .full-image {
-            width: 100%;
-            margin: 50px 0;
-        }
+.bg-text-row:nth-child(3) {
+    top: 200px;
+    animation: scrollRight 20s linear infinite;
+}
 
-        /* Release info */
-        .release-info {
-            text-align: center;
-            font-size: 2.5em; /* 3x bigger than first version */
-            margin-bottom: 10px;
-        }
+/* Logo in the center */
+.hero-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 200px;
+}
 
-        /* Bigger social icons at bottom */
-        .big-social-icons img {
-            width: 40px;
-            margin: 10px;
-        }
+/* Animations for background text */
+@keyframes scrollRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
 
-        /* ===== Mobile Scaling ===== */
-        @media (max-width: 768px) {
-            .description {
-                font-size: 0.58em; /* 3.3x smaller for phones */
-            }
-            .release-info {
-                font-size: 1.25em; /* 2x smaller for phones */
-            }
-            .section {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+@keyframes scrollLeft {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ===========================
+   TITLE BELOW LOGO
+   =========================== */
+.main-title {
+    font-size: 4em;
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* ===========================
+   DESCRIPTION SECTIONS
+   =========================== */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 40px;
+}
+
+.section img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+/* Description text scaling (desktop) */
+.section p {
+    font-size: 1.9em; /* ~3.8× bigger than first version */
+    line-height: 1.4;
+    max-width: 500px;
+}
+
+/* Alternate layouts */
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+/* ===========================
+   FULL-WIDTH IMAGE SECTION
+   =========================== */
+.full-width-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* ===========================
+   RELEASE INFO SECTION
+   =========================== */
+.release {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.release h2 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+}
+
+.release p {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.release-icons img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.release-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* ===========================
+   MOBILE RESPONSIVENESS
+   =========================== */
+@media (max-width: 768px) {
+    /* Stack description sections */
+    .section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Scale down description text for mobile */
+    .section p {
+        font-size: calc(1.9em / 3.3);
+    }
+
+    /* Scale down release text for mobile */
+    .release h2 {
+        font-size: calc(2.4em / 2);
+    }
+    .release p {
+        font-size: calc(1.8em / 2);
+    }
+
+    /* Smaller background text */
+    .bg-text-row {
+        font-size: 30px;
+    }
+}
+</style>
 </head>
 <body>
 
-    <!-- ===== Top Panel ===== -->
-    <div class="top-panel">
-        <div class="logo"><a href="https://sabbigames.com">Sabbi Games</a></div>
-        <div class="social-icons">
-            <a href="YOUR_YOUTUBE_LINK"><img src="YOUR_YOUTUBE_ICON" alt="YouTube"></a>
-            <a href="YOUR_INSTAGRAM_LINK"><img src="YOUR_INSTAGRAM_ICON" alt="Instagram"></a>
-            <a href="YOUR_TIKTOK_LINK"><img src="YOUR_TIKTOK_ICON" alt="TikTok"></a>
-        </div>
+<!-- ===========================
+     TOP NAVIGATION BAR
+     =========================== -->
+<div class="navbar">
+    <a href="https://sabbigames.com">Sabbi Games</a>
+    <div class="nav-icons">
+        <!-- Replace YOUR_LINK with icon URLs -->
+        <a href="YOUR_YOUTUBE_URL"><img src="YOUR_LINK" alt="YouTube"></a>
+        <a href="YOUR_INSTAGRAM_URL"><img src="YOUR_LINK" alt="Instagram"></a>
+        <a href="YOUR_TIKTOK_URL"><img src="YOUR_LINK" alt="TikTok"></a>
     </div>
+</div>
 
-    <!-- ===== Hero Section with Background Animated Text ===== -->
-    <div class="hero">
-        <!-- Infinite scrolling background text rows -->
-        <div class="bg-text-row">
-            <span>ZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.</span>
-            <span>ZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.</span>
-        </div>
-        <div class="bg-text-row">
-            <span>WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.</span>
-            <span>WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.</span>
-        </div>
-        <div class="bg-text-row">
-            <span>CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.</span>
-            <span>CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.</span>
-        </div>
+<!-- ===========================
+     HERO SECTION WITH BACKGROUND TEXT + LOGO
+     =========================== -->
+<div class="hero">
+    <div class="bg-text-row">ZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.</div>
+    <div class="bg-text-row">WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.</div>
+    <div class="bg-text-row">CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.</div>
 
-        <!-- Main logo -->
-        <img src="YOUR_LINK" alt="Crazy Way Logo" class="hero-logo">
+    <!-- Logo -->
+    <img src="YOUR_LINK" alt="Crazy Way Logo" class="hero-logo">
+</div>
 
-        <!-- Game Title -->
-        <div class="game-title">CRAZY WAY</div>
+<!-- ===========================
+     MAIN TITLE
+     =========================== -->
+<h1 class="main-title">CRAZY WAY</h1>
+
+<!-- ===========================
+     FIRST DESCRIPTION SECTION
+     =========================== -->
+<div class="section">
+    <p>
+        Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
+    </p>
+    <img src="YOUR_LINK" alt="Hand with Game">
+</div>
+
+<!-- ===========================
+     SECOND DESCRIPTION SECTION
+     =========================== -->
+<div class="section reverse">
+    <p>
+        Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
+        <!-- Replace above text with your new text later -->
+    </p>
+    <img src="YOUR_LINK" alt="Second Image">
+</div>
+
+<!-- ===========================
+     FULL-WIDTH IMAGE SECTION
+     =========================== -->
+<div class="full-width-image">
+    <img src="YOUR_LINK" alt="Screenshots Strip">
+</div>
+
+<!-- ===========================
+     RELEASE INFO
+     =========================== -->
+<div class="release">
+    <h2>THE GAME WILL BE RELEASED ON ANDROID IN SEPTEMBER</h2>
+    <p>FOLLOW ME IF YOU DON’T WANT TO MISS!</p>
+    <div class="release-icons">
+        <a href="YOUR_YOUTUBE_URL"><img src="YOUR_LINK" alt="YouTube"></a>
+        <a href="YOUR_INSTAGRAM_URL"><img src="YOUR_LINK" alt="Instagram"></a>
+        <a href="YOUR_TIKTOK_URL"><img src="YOUR_LINK" alt="TikTok"></a>
     </div>
-
-    <!-- ===== First Text + Image Section ===== -->
-    <div class="section">
-        <div class="description">
-            Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
-        </div>
-        <img src="YOUR_LINK_HAND_IMAGE" alt="Game Hand Image">
-    </div>
-
-    <!-- ===== Second Image + Text Section (reverse order) ===== -->
-    <div class="section reverse">
-        <div class="description">
-            <!-- Change this text later if needed -->
-            Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
-        </div>
-        <img src="YOUR_LINK_SECOND_IMAGE" alt="Second Image">
-    </div>
-
-    <!-- ===== Full-width Screenshots Image ===== -->
-    <img src="YOUR_LINK_SCREENSHOTS" alt="Game Screenshots" class="full-image">
-
-    <!-- ===== Release Info ===== -->
-    <div class="release-info">THE GAME WILL BE RELEASED ON ANDROID IN SEPTEMBER</div>
-    <div class="release-info">FOLLOW ME IF YOU DON’T WANT TO MISS!</div>
-
-    <!-- ===== Bottom Social Icons ===== -->
-    <div class="big-social-icons" style="text-align:center;">
-        <a href="YOUR_YOUTUBE_LINK"><img src="YOUR_YOUTUBE_ICON" alt="YouTube"></a>
-        <a href="YOUR_INSTAGRAM_LINK"><img src="YOUR_INSTAGRAM_ICON" alt="Instagram"></a>
-        <a href="YOUR_TIKTOK_LINK"><img src="YOUR_TIKTOK_ICON" alt="TikTok"></a>
-    </div>
+</div>
 
 </body>
 </html>
