@@ -5,100 +5,165 @@
   <title>Crazy Way</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Reset and global styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { overflow-x: hidden; font-family: "Tw Cen MT Condensed", "Arial Narrow", sans-serif; }
-    a { text-decoration: none; color: inherit; }
-    
-    /* Header */
+    /* -------------------- GLOBAL STYLES -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Makes width/height include padding */
+    }
+
+    body {
+      overflow-x: hidden; /* Disable horizontal scrolling */
+      font-family: "Tw Cen MT Condensed", "Arial Narrow", sans-serif; /* Closest font */
+      background-color: white; /* White background */
+      color: black; /* Default text color */
+    }
+
+    a {
+      text-decoration: none; /* Remove underline */
+      color: inherit; /* Links inherit text color */
+    }
+
+    /* -------------------- HEADER -------------------- */
     header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: #000; color: #fff;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 20px; z-index: 1000;
+      position: fixed; /* Sticks to top of screen */
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      background: #000; /* Black background */
+      color: #fff; /* White text */
+      display: flex; /* Horizontal layout for logo + social icons */
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000; /* Keep on top of everything */
     }
+
     header .logo a {
-      font-size: 1.2rem; font-weight: bold;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
+
     header .social-icons img {
-      width: 24px; height: 24px; margin-left: 15px;
-      /* Animation for icons */
-      transform: scale(0);
-      animation: scaleUp 0.5s ease forwards;
+      width: 24px;
+      height: 24px;
+      margin-left: 15px;
+      transform: scale(0); /* Start small for animation */
+      animation: scaleUp 0.5s ease forwards; /* Grow in */
     }
 
-    /* Hero Section */
+    /* -------------------- HERO SECTION -------------------- */
     #hero {
-      background: #000; color: #fff;
-      padding-top: 80px; /* space for fixed header */
-      text-align: center;
-    }
-    #hero .logo-img {
-      width: 150px; /* adjust as needed */
-      margin-top: -40px; /* overlap into header */
-    }
-    #hero .game-title {
-      font-size: 3rem; margin-top: 20px;
-      opacity: 0;
-      animation: slideUp 0.8s ease-out forwards;
+      background: #000; /* Black background */
+      color: #fff; /* White text */
+      padding-top: 80px; /* Push down to avoid fixed header overlap */
+      text-align: center; /* Center logo & title */
     }
 
-    /* Intro Section */
+    #hero .logo-img {
+      width: 150px; /* Adjust as needed */
+      margin-top: -40px; /* Slightly overlap header space */
+    }
+
+    #hero .game-title {
+      font-size: 6rem; /* Was 3rem, doubled to 6rem */
+      margin-top: 20px;
+      opacity: 0; /* Invisible until animation */
+      animation: slideUp 0.8s ease-out forwards; /* Slide in from below */
+    }
+
+    /* -------------------- INTRO & FEATURE SECTIONS -------------------- */
     #intro, #feature {
-      display: flex; align-items: center;
+      display: flex; /* Side-by-side layout */
+      align-items: center; /* Vertically centered */
       padding: 40px 20px;
     }
-    #intro .text, #feature .text {
-      flex: 1; padding: 10px;
-      font-size: 1rem; line-height: 1.5;
-    }
-    #intro .image, #feature .image {
-      flex: 1; padding: 10px; text-align: center;
-    }
-    #intro .image img, #feature .image img {
-      max-width: 100%; height: auto;
-    }
-    /* Reverse order for feature section */
-    #feature { flex-direction: row-reverse; }
 
-    /* Screenshots Section */
+    #intro .text, #feature .text {
+      flex: 1; /* Take up half the section width */
+      padding: 10px;
+      font-size: 5rem; /* Increased 5× from ~1rem */
+      line-height: 1.3; /* Slightly tighter for large text */
+    }
+
+    #intro .image, #feature .image {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #intro .image img, #feature .image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Reverse the column order for the second section */
+    #feature {
+      flex-direction: row-reverse;
+    }
+
+    /* -------------------- SCREENSHOTS SECTION -------------------- */
     #screenshots img {
-      width: 100%; height: auto;
+      width: 100%; /* Full-width image */
+      height: auto;
       display: block;
     }
 
-    /* Release Section */
+    /* -------------------- RELEASE SECTION -------------------- */
     #release {
-      text-align: center; padding: 40px 20px;
+      text-align: center;
+      padding: 40px 20px;
     }
+
     #release p {
-      font-size: 1.2rem; margin: 10px 0;
+      font-size: 3.6rem; /* Was ~1.2rem, ×3 bigger */
+      margin: 10px 0;
     }
+
     #release .social-icons {
       margin-top: 20px;
     }
+
     #release .social-icons img {
-      width: 32px; height: 32px; margin: 0 10px;
+      width: 32px;
+      height: 32px;
+      margin: 0 10px;
       transform: scale(0);
       animation: scaleUp 0.5s ease 0.3s forwards;
     }
 
-    /* Responsive (mobile) */
+    /* -------------------- RESPONSIVE DESIGN -------------------- */
     @media (max-width: 768px) {
       #intro, #feature {
-        flex-direction: column;
+        flex-direction: column; /* Stack vertically */
       }
-      header { padding: 10px; }
-      #hero .game-title { font-size: 2.5rem; }
-      header .social-icons img { margin-left: 10px; width: 20px; height: 20px; }
-      #release .social-icons img { width: 28px; height: 28px; }
+
+      header {
+        padding: 10px;
+      }
+
+      #hero .game-title {
+        font-size: 4rem; /* Smaller on mobile */
+      }
+
+      header .social-icons img {
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+      }
+
+      #release .social-icons img {
+        width: 28px;
+        height: 28px;
+      }
     }
 
-    /* Animations */
+    /* -------------------- ANIMATIONS -------------------- */
     @keyframes scaleUp {
       from { transform: scale(0); }
       to { transform: scale(1); }
     }
+
     @keyframes slideUp {
       from { transform: translateY(100%); }
       to { transform: translateY(0); opacity: 1; }
@@ -107,52 +172,68 @@
 </head>
 <body>
 
+  <!-- ==================== HEADER ==================== -->
   <header>
-    <div class="logo"><a href="https://sabbiagames.com" target="_blank">Sabbi Games</a></div>
+    <!-- Left: Website link -->
+    <div class="logo">
+      <a href="https://sabbiagames.com" target="_blank">Sabbi Games</a>
+    </div>
+
+    <!-- Right: Social icons -->
     <div class="social-icons">
-      <!-- Replace YOUR_LINK with actual icon URLs -->
+      <!-- Replace YOUR_LINK with actual image URLs -->
       <a href="#"><img src="YOUR_LINK" alt="YouTube"></a>
       <a href="#"><img src="YOUR_LINK" alt="Instagram"></a>
       <a href="#"><img src="YOUR_LINK" alt="TikTok"></a>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- ==================== HERO SECTION ==================== -->
   <section id="hero">
+    <!-- Game logo -->
     <img src="YOUR_LINK" alt="Game Logo" class="logo-img">
+
+    <!-- Big game title -->
     <h1 class="game-title">CRAZY WAY</h1>
   </section>
 
-  <!-- Intro Section (Text left, image right) -->
+  <!-- ==================== INTRO SECTION (Text left, Image right) ==================== -->
   <section id="intro">
+    <!-- Game description -->
     <div class="text">
       Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
     </div>
+
+    <!-- Image of the game being played -->
     <div class="image">
       <img src="YOUR_LINK" alt="Hand with Game">
     </div>
   </section>
 
-  <!-- Feature Section (Image left, text right) -->
+  <!-- ==================== FEATURE SECTION (Image left, Text right) ==================== -->
   <section id="feature">
+    <!-- Game image -->
     <div class="image">
       <img src="YOUR_LINK" alt="Feature Image">
     </div>
+
+    <!-- Full second description (not shortened) -->
     <div class="text">
-      <!-- TODO: Replace this with your feature text -->
-      Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal...
+      Crazy Way offers 50+ unique levels, each with its own challenge. The controls are simple — swipe to send your cube flying until it hits an obstacle. Plan your moves carefully, because once you start sliding, you won’t stop until something blocks your path! Can you beat the clock and make it to the portal in time?
     </div>
   </section>
 
-  <!-- Screenshots Section (Full-width image) -->
+  <!-- ==================== SCREENSHOTS SECTION ==================== -->
   <section id="screenshots">
     <img src="YOUR_LINK" alt="Screenshots from the game">
   </section>
 
-  <!-- Release Section -->
+  <!-- ==================== RELEASE SECTION ==================== -->
   <section id="release">
     <p>THE GAME WILL BE RELEASED ON ANDROID IN SEPTEMBER</p>
     <p>FOLLOW ME IF YOU DON’T WANT TO MISS!</p>
+
+    <!-- Social icons again -->
     <div class="social-icons">
       <a href="#"><img src="YOUR_LINK" alt="YouTube"></a>
       <a href="#"><img src="YOUR_LINK" alt="Instagram"></a>
