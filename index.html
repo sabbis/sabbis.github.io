@@ -36,7 +36,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 20px; /* increased by 10px top/bottom */
     position: fixed;
     top: 0;
     left: 0;
@@ -57,6 +57,16 @@ html, body {
     transition: transform 0.3s;
 }
 
+/* Adjust specific logos (YouTube/TikTok) */
+.nav-icons img.youtube {
+    height: 25px; /* slightly shorter */
+}
+
+.nav-icons img.tiktok {
+    width: 27px; /* slightly smaller */
+    height: 27px;
+}
+
 .nav-icons img:hover {
     transform: scale(1.2);
 }
@@ -65,7 +75,7 @@ html, body {
    HERO SECTION (LOGO + BACKGROUND TEXT)
    =========================== */
 .hero {
-    margin-top: 60px; /* space for navbar */
+    margin-top: 60px; 
     position: relative;
     height: 350px;
     overflow: visible;
@@ -159,13 +169,29 @@ html, body {
    MOBILE RESPONSIVENESS
    =========================== */
 @media (max-width: 768px) {
+    /* Stack sections */
     .section { flex-direction: column; text-align: center; }
-    .section p { font-size: calc(1.9em / 3.3); }
+
+    /* Make description text larger x2 on phones */
+    .section p { font-size: calc(1.9em * 2); }
+
+    /* Scale down background text rows */
+    .bg-text-row { 
+        font-size: 20px; /* smaller font */
+    }
+
+    /* Reduce gaps between text rows */
+    .bg-text-row:nth-child(1) { top: 10px; }
+    .bg-text-row:nth-child(2) { top: 50px; }
+    .bg-text-row:nth-child(3) { top: 90px; }
+
+    /* Shrink logo 2x */
+    .hero-logo { max-width: 170px; }
+
+    /* Scale down release text */
     .release h2 { font-size: calc(2.4em / 2); }
     .release p { font-size: calc(1.8em / 2); }
-    .bg-text-row { font-size: 30px; }
 }
-
 </style>
 </head>
 <body>
@@ -226,6 +252,7 @@ html, body {
 
 </body>
 </html>
+
 
 
 
