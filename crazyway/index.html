@@ -1,1 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabbi Games - Crazy Way</title>
 
+<!-- Google Fonts (closest to Tw Cen MT Condensed) -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+
+<meta property="og:title" content="Crazy Way - Play for free!">
+<meta property="og:description" content="Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal.">
+<meta property="og:image" content="https://sabbigames.com/assets/CubeIcon.png">
+<meta property="og:url" content="https://sabbigames.com">
+<meta property="og:type" content="website">
+   
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JF3CYNTV0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5JF3CYNTV0');
+</script>
+
+   
+<style>
+/* ===========================
+   GLOBAL STYLES
+   =========================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Oswald', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===========================
+   TOP NAVBAR
+   =========================== */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px; /* increased by 10px top/bottom */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+/* Adjust specific logos (YouTube/TikTok) */
+.nav-icons img.youtube {
+    height: 24px; /* slightly shorter */
+}
+
+.nav-icons img.tiktok {
+    width: 24px; /* slightly smaller */
+    height: 24px;
+}
+
+.instagram {
+    position: relative;
+    top: +3px; /* moves Instagram icon 3px up */
+}
+
+.nav-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* ===========================
+   HERO SECTION (LOGO + BACKGROUND TEXT)
+   =========================== */
+.hero {
+    margin-top: 60px; 
+    position: relative;
+    height: 350px;
+    overflow: visible;
+    background-color: black;
+}
+
+.bg-text-row {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 60px;
+    opacity: 0.8;
+    color: white;
+}
+
+.bg-text-row:nth-child(1) { top: 40px; animation: scrollRight 20s linear infinite; }
+.bg-text-row:nth-child(2) { top: 120px; animation: scrollLeft 20s linear infinite; }
+.bg-text-row:nth-child(3) { top: 200px; animation: scrollRight 20s linear infinite; }
+
+.hero-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 345px;
+}
+
+/* ===========================
+   TITLE BELOW LOGO
+   =========================== */
+.main-title {
+    font-size: 4em;
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* ===========================
+   DESCRIPTION SECTIONS
+   =========================== */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    gap: 40px;
+}
+
+.section img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    
+}
+
+.section p {
+    font-size: 1.9em;
+    line-height: 1.4;
+    max-width: 500px;
+}
+
+.section.reverse { flex-direction: row-reverse; }
+
+/* ===========================
+   FULL-WIDTH IMAGE SECTION
+   =========================== */
+.section.new-text {
+    flex-direction: column;       /* stack items vertically */
+    text-align: center;           /* center text horizontally */
+    margin: 80px 0;               /* space above/below */
+}
+
+.section.new-text p {
+    font-size: 2.8em;             /* slightly bigger than normal text */
+    font-weight: 700;             /* bold */
+    line-height: 1.4;
+}
+   
+.full-width-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* ===========================
+   RELEASE INFO SECTION
+   =========================== */
+.release {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.release h2 { font-size: 2.4em; margin-bottom: 20px; }
+.release p { font-size: 1.8em; margin-bottom: 20px; }
+
+.release-icons img {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    transition: transform 0.3s;
+    filter: invert(1);
+}
+
+.release-icons img:hover { transform: scale(1.2); }
+
+/* ===========================
+   MOBILE RESPONSIVENESS
+   =========================== */
+@media (max-width: 768px) {
+
+   .hero {
+        height: 150px; /* smaller panel */
+        margin-top: 70px;
+    }
+
+    .bg-text-row:nth-child(1) { top: 20px; }
+    .bg-text-row:nth-child(2) { top: 60px; }
+    .bg-text-row:nth-child(3) { top: 100px; }
+   
+   .main-title {
+       margin: 10px 0;
+   }
+
+   .section {
+       padding: 0px 20px;
+       
+   }
+   
+    /* Stack sections */
+    .section { flex-direction: column; text-align: center; }
+
+   .section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    /* Make description text larger x2 on phones */
+    .section p { font-size: calc(1.9em * 0.9); }
+
+   .section.reverse {
+        flex-direction: column !important; /* override reverse for mobile */
+    }
+
+    /* Scale down background text rows */
+    .bg-text-row { 
+        font-size: 20px; /* smaller font */
+    }
+
+    /* Reduce gaps between text rows */
+    .bg-text-row:nth-child(1) { top: 10%px; }
+    .bg-text-row:nth-child(2) { top: 40%px; }
+    .bg-text-row:nth-child(3) { top: 70%px; }
+
+    /* Shrink logo 2x */
+    .hero-logo { max-width: 150px; }
+
+   .full-width-image img {
+    width: 230%;
+    height: auto;
+   }
+
+
+   .section.new-text p {
+        font-size: 1.8em;           /* scale down a bit for smaller screens */
+    }
+
+   
+    /* Scale down release text */
+    .release h2 { font-size: calc(2.4em / 2); }
+    .release p { font-size: calc(1.8em / 2); }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION BAR -->
+<div class="navbar">
+    <a href="https://sabbigames.com">Sabbi Games</a>
+    <div class="nav-icons">
+        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
+        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <div class="bg-text-row">ZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY</div>
+    <div class="bg-text-row">WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY</div>
+    <div class="bg-text-row">CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY</div>
+
+    <img src="assets/CubeIcon.png" alt="Crazy Way Logo" class="hero-logo">
+</div>
+
+<!-- MAIN TITLE -->
+<h1 class="main-title">CRAZY WAY</h1>
+
+<!-- FIRST DESCRIPTION SECTION -->
+<div class="section">
+    <p>
+        Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
+    </p>
+    <img src="assets/handportalspacing.png" alt="Hand with Game">
+</div>
+
+<!-- SECOND DESCRIPTION SECTION -->
+<div class="section reverse">
+    <p>
+        Unlock all skins, explore unique worlds, and climb through the leagues! Test your luck at the Claw Machine to win exciting rewards for your gems. Discover fun modifiers that make every game more exciting!
+    </p>
+    <img src="assets/slidingoncubes.png" alt="Second Image">
+</div>
+
+<!-- NEW TEXT SECTION -->
+<div class="section new-text">
+    <p>
+        Bring the chaos of cubes in epic worlds of Crazy Way!
+    </p>
+</div>
+
+<!-- FULL-WIDTH IMAGE SECTION -->
+<div class="full-width-image" style="margin-top: 80px;">
+    <img src="assets/screenshotwall2.png" alt="Screenshots Strip">
+</div>
+
+<!-- RELEASE INFO -->
+<div class="release">
+    <h2>THE GAME WILL BE RELEASED ON ANDROID IN SEPTEMBER 2025</h2>
+    <p>FOLLOW ME IF YOU DON’T WANT TO MISS!</p>
+    <div class="release-icons">
+        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
+        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+    </div>
+</div>
+
+</body>
+</html>
