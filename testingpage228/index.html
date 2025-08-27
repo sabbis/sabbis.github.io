@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crazy Way - Free Mobile Game</title>
 
+<!-- Google Fonts (closest to Tw Cen MT Condensed) -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+
+<meta property="og:title" content="Crazy Way - Play for free!">
+<meta property="og:description" content="Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal.">
+<meta property="og:image" content="https://sabbigames.com/assets/CubeIcon.png">
+<meta property="og:url" content="https://sabbigames.com/crazyway">
+<meta property="og:type" content="website">
+   
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JF3CYNTV0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5JF3CYNTV0');
+</script>
+
+   
+<style>
+/* ===========================
+   GLOBAL STYLES
+   =========================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Oswald', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===========================
+   TOP NAVBAR
+   =========================== */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px; /* increased by 10px top/bottom */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+/* Adjust specific logos (YouTube/TikTok) */
+.nav-icons img.youtube {
+    height: 24px; /* slightly shorter */
+}
+
+.nav-icons img.tiktok {
+    width: 24px; /* slightly smaller */
+    height: 24px;
+}
+
+.instagram {
+    position: relative;
+    top: 3px; /* moves Instagram icon 3px up */
+}
+
+.nav-icons img:hover {
+    transform: scale(1.2);
+}
+
+</style>
+</head>
+</html>
