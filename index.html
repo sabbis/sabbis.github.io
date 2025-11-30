@@ -227,45 +227,53 @@ html, body {
     gap: 40px;
 }
 
+/* FIXED NEWS ITEM */
 .news-item {
     display: block;
     background-color: #111;
-    padding: 20px;
+    padding: 0;                      /* remove padding around image */
     border-radius: 12px;
-    width: 90%;
+    width: 100%;                     /* full width on phone */
     max-width: 450px;
     text-align: center;
-    text-decoration: none !important;  /* <- THE IMPORTANT LINE */
+    text-decoration: none !important;
     color: white;
-    transition: transform 0.2s, opacity 0.2s;
+    overflow: hidden;                /* FIX: kills weird extra area */
+    margin: 0 auto;                  /* ensure centered */
 }
 
-.news-item * {
-    text-decoration: none !important;  /* <- removes underline on all inner elements */
-}
-
+/* Make image take full width + centered */
 .news-item img {
-    width: 100%;
-    border-radius: 10px;
+    display: block;                  /* removes inline weirdness */
+    width: 100%;                     /* always full width */
+    height: auto;
+    border-radius: 0;                /* clean rectangle */
+    margin: 0 auto;                  /* center on desktop */
 }
 
 .news-text {
+    padding: 20px;                   /* padding now only for text */
     font-size: 1.6em;
     color: white;
-    margin-top: 15px;
+    text-decoration: none !important;
 }
 
-/* Mobile scaling */
+/* Hover effect */
+.news-item:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
 @media (max-width: 768px) {
     .news-item {
-        width: 95%;
+        width: 95%;                 /* fits perfectly on phone */
     }
 
     .news-text {
         font-size: 1.3em;
     }
 }
-
 /* ===========================
    MOBILE RESPONSIVENESS
    =========================== */
@@ -424,6 +432,7 @@ html, body {
 
 </body>
 </html>
+
 
 
 
