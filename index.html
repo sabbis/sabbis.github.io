@@ -205,6 +205,59 @@ html, body {
 
 .release-icons img:hover { transform: scale(1.2); }
 
+
+   /* ===========================
+      NEWS SECTION
+   =========================== */
+.news-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.news-title {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.news-item {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.news-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.news-text {
+    font-size: 1.6em;
+    color: white;
+    margin-top: 15px;
+}
+
+/* Mobile scaling */
+@media (max-width: 768px) {
+    .news-item {
+        width: 95%;
+    }
+
+    .news-text {
+        font-size: 1.3em;
+    }
+}
+
 /* ===========================
    MOBILE RESPONSIVENESS
    =========================== */
@@ -327,17 +380,41 @@ html, body {
 
 <!-- RELEASE INFO -->
 <div class="release">
-    <h2>THE GAME WILL BE RELEASED ON ANDROID IN NOVEMBER 2025</h2>
-    <p>FOLLOW ME IF YOU DON’T WANT TO MISS!</p>
-    <div class="release-icons">
-        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
-        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+    <h2>Download the game for free on Android</h2>
+
+    <a href="https://play.google.com/store/apps/details?id=YOUR_GAME_ID_HERE">
+        <img src="assets/google-play-badge.png" 
+             alt="Get it on Google Play" 
+             style="width:220px; margin-top:20px;">
+    </a>
+</div>
+
+   <!-- NEWS SECTION -->
+<div class="news-section">
+    <h2 class="news-title">NEWS</h2>
+
+    <div class="news-container">
+
+        <!-- Example News Item -->
+        <div class="news-item">
+            <img src="assets/news1.jpg" alt="News Image">
+            <p class="news-text">Crazy Way is Now Live Worldwide!</p>
+        </div>
+
+        <!-- Duplicate this block to add more news -->
+        <!--
+        <div class="news-item">
+            <img src="assets/news2.jpg" alt="News Image">
+            <p class="news-text">Your second news headline here.</p>
+        </div>
+        -->
+
     </div>
 </div>
 
 </body>
 </html>
+
 
 
 
