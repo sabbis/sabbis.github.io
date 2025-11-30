@@ -340,6 +340,83 @@ html, body {
     .release h2 { font-size: calc(2.4em / 2); }
     .release p { font-size: calc(1.8em / 2); }
 }
+
+
+   /* ===========================
+          FOOTER
+   =========================== */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px 20px;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    min-width: 180px;
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    font-size: 1.2em;
+}
+
+.footer-section a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 6px 0;
+    font-size: 1.2em;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+}
+
+/* Social icons */
+.footer-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    filter: invert(1);
+    transition: transform 0.2s;
+}
+
+.footer-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Bottom copyright line */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1em;
+    opacity: 0.7;
+}
+
+/* MOBILE FRIENDLY */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
 </style>
 </head>
 <body>
@@ -430,8 +507,43 @@ html, body {
     </div>
 </div>
 
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+
+        <div class="footer-section">
+            <h3>Sabbi Games</h3>
+            <p>Creating chaos, cubes, and fun worlds.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Links</h3>
+            <a href="https://sabbigames.com">Home</a>
+            <a href="https://play.google.com/store/apps/details?id=YOUR_GAME_ID">Download Crazy Way</a>
+            <a href="mailto:contact@sabbigames.com">Contact</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow</h3>
+            <div class="footer-icons">
+                <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="assets/youtube-icon.jpg" alt="YouTube"></a>
+                <a href="https://www.instagram.com/sabbigames"><img src="assets/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 Sabbi Games. All rights reserved.
+    </div>
+</footer>
+
 </body>
 </html>
+
 
 
 
