@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabbi Games - News</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background: white;
+    color: black;
+}
+
+/* NAVBAR (same as your site) */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+.nav-icons img.youtube { height: 24px; }
+.nav-icons img.tiktok { width: 24px; height: 24px; }
+.instagram { position: relative; top: 3px; }
+
+.nav-icons img:hover { transform: scale(1.2); }
+
+/* PAGE LAYOUT */
+.content {
+    max-width: 900px;
+    margin: 140px auto 50px auto;  /* space under navbar */
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* IMAGE */
+.article-image {
+    width: 33%;
+    min-width: 250px;        /* prevents becoming too small */
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* TITLE */
+.article-title {
+    font-size: 3em;
+    font-weight: 700;
+    margin: 30px 0 20px 0;
+}
+
+/* BODY TEXT */
+.article-text {
+    text-align: left;
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .article-image {
+        width: 90%;
+    }
+    .article-title {
+        font-size: 2.2em;
+    }
+    .article-text {
+        font-size: 1.2em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="https://sabbigames.com">Sabbi Games</a>
+    <div class="nav-icons">
+        <a href="https://www.youtube.com/@Sabbi.Games.Development">
+            <img src="assets/youtube-icon.jpg" class="youtube" alt="YouTube">
+        </a>
+        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag==">
+            <img src="assets/instagram-icon.png" class="instagram" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@sabbi.games.development">
+            <img src="assets/tt-icon.png" class="tiktok" alt="TikTok">
+        </a>
+    </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="content">
+
+    <!-- Replace this with your image -->
+    <img src="assets/CubeIcon.png" class="article-image" alt="Crazy Way">
+
+    <div class="article-title">CRAZY WAY IS NOW LIVE!</div>
+
+    <div class="article-text">
+        <p>The free fast-paced game that requires critical thinking and quick decision making is now out and can be downloaded on any Android device. As of November 30, 2025, it can be played in any country around the world for free. The game does not feature any in-game purchases or advertisement, which makes it much more enjoyable.</p>
+
+        <p>For people who don’t know what the game is about, here is a short summary: To move—you swipe. You can move by bouncing from a wall to a wall only, no stopping midway! Your goal is to get to the portal. Once you enter the portal, the level changes and you try to find a way to the new generated portal. You have to try to enter as many portals as you can in given time! If you are stuck, you can go back to where you started. There are also gems on your way that you can collect and then use to buy skins or get more gems.</p>
+
+        <p>There are 20 skins for your cube, all of them are unique! There are three rarities, which affect how much the cube is different from a base model. Skins can be bought for 80, 150, 300 gems or can be obtained through claw machine with low chance.</p>
+
+        <p>There are two kinds of claw machine: One drops skins along with gems, but the other one drops gems only in bigger amounts. You can open claw for 10 gems and get 1–300 gems. The classic claw can also drop skin with any rarity.</p>
+
+        <p>As of November 30, 2025, the game has been in development for two years in December. Even though it is a lot of time, I see that the game is far from being an instant hit or a game that can get millions of players in the first year. For that reason, it is being released only on Android, with potential iOS release being in 2026. I can assure you that Crazy Way will be getting multiple updates that will shape a game to look much better than it is right now, and the first update is planned in December, which is very soon.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
