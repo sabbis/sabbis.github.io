@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabbi Games - News</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background: white;
+    color: black;
+}
+
+/* NAVBAR (same as your site) */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.nav-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+.nav-icons img.youtube { height: 24px; }
+.nav-icons img.tiktok { width: 24px; height: 24px; }
+.instagram { position: relative; top: 3px; }
+
+.nav-icons img:hover { transform: scale(1.2); }
+
+/* PAGE LAYOUT */
+.content {
+    max-width: 900px;
+    margin: 140px auto 50px auto;  /* space under navbar */
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* IMAGE */
+.article-image {
+    width: 33%;
+    min-width: 250px;        /* prevents becoming too small */
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* TITLE */
+.article-title {
+    font-size: 3em;
+    font-weight: 700;
+    margin: 30px 0 20px 0;
+}
+
+/* BODY TEXT */
+.article-text {
+    text-align: left;
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .article-image {
+        width: 90%;
+    }
+    .article-title {
+        font-size: 2.2em;
+    }
+    .article-text {
+        font-size: 1.2em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="https://sabbigames.com">Sabbi Games</a>
+    <div class="nav-icons">
+        <a href="https://www.youtube.com/@Sabbi.Games.Development">
+            <img src="/assets/youtube-icon.jpg" class="youtube" alt="YouTube">
+        </a>
+        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag==">
+            <img src="/assets/instagram-icon.png" class="instagram" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@sabbi.games.development">
+            <img src="/assets/tt-icon.png" class="tiktok" alt="TikTok">
+        </a>
+    </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="content">
+
+    <!-- Replace this with your image -->
+    <img src="/assets/Update1News.png" class="article-image" alt="Crazy Way">
+
+    <div class="article-title">NEW UPDATE 1.1 IS NOW LIVE!</div>
+
+    <div class="article-text">
+    <p><strong>Crazy Way — Update 1.1 Release Notes</strong></p>
+
+    <p><strong>New Mode: Maze</strong><br>
+    A brand-new game mode is now available: Maze. Players can explore a gigantic maze to collect trophies and gems, with 140 seconds to escape through the portal. If the portal is not entered in time, the run ends with 0 gems and negative trophies. Players can now flag locations inside the maze and return to them later using a directional arrow. Maze mode unlocks at 150 trophies after being claimed on Trophy Road and requires Tickets to play.</p>
+
+    <p><strong>New Currency: Tickets</strong><br>
+    Tickets are a new currency used to enter Maze mode. They can be unlocked through Trophy Road or purchased in the Shop for 20 gems.</p>
+
+    <p><strong>Shop & Profile Changes</strong><br>
+    The Shop is now live and replaces the Profile icon. The Profile UI has been moved to Settings. After updating, players can also claim a one-time mystery gift in the Shop.</p>
+
+    <p><strong>Trophy Road Expansion</strong><br>
+    Trophy Road has been expanded up to 7,600 trophies with the addition of two new leagues: Sapphire and Ruby. Trophy progression has been made easier overall. A full Trophy Road explanation video is planned for January.</p>
+
+    <p><strong>New Worlds</strong><br>
+    Two new worlds have been added and can be unlocked through Trophy Road: Royal and City. No new modifiers were introduced in this update.</p>
+
+    <p><strong>New Skins</strong><br>
+    New skins have been added to the game. Rare skins include Black and Crowned, Epic introduces Roads, and Mythic skins include Royal and Skyscraper. These skins are not obtainable from the Claw Machine. More information will be shared later in January.</p>
+
+    <p><strong>UI & Fixes</strong><br>
+    Several areas of the UI have been cleaned up and improved. This update also includes multiple bug fixes and performance improvements.</p>
+</div>
+
+</div>
+
+</body>
+</html>
