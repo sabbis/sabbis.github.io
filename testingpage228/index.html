@@ -71,7 +71,7 @@ html, body {
 }
 
 /* ===========================
-   HERO BANNER
+   HERO BANNER (FIRST IMAGE)
    =========================== */
 .hero-banner {
     width: 100%;
@@ -85,15 +85,25 @@ html, body {
 }
 
 /* ===========================
-   SHOWCASE GRAPHIC SECTION
+   MIDDLE TEXT SECTION
    =========================== */
-.showcase-container {
-    position: relative;
-    width: 100%;
+.intro-banner {
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
     background-color: white;
-    overflow: hidden;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.2;
+    letter-spacing: 1px;
 }
 
+/* ===========================
+   SECOND GRAPHIC IMAGE
+   =========================== */
 .graphic-wrapper {
     width: 100%;
 }
@@ -104,75 +114,13 @@ html, body {
     display: block;
 }
 
-.showcase-text {
-    color: black;
-    font-size: 2.1em;
-    line-height: 1.3;
-    text-transform: uppercase;
-    font-weight: 700;
-    z-index: 10;
-}
-
-/* ===========================
-   DESKTOP STYLES (Screen > 768px)
-   =========================== */
-@media (min-width: 769px) {
-    .showcase-text {
-        position: absolute;
-        /* Using viewport-width units (vw) keeps vertical alignment proportional to image scaling on all monitors */
-        top: 22vw; 
-        width: 28%;
-        text-align: center;
-    }
-
-    .text-left {
-        /* Calculates exact 1.5 / 6 screen position (25%) */
-        left: calc(100% * (1 / 6));
-        transform: translateX(-50%);
-    }
-
-    .text-right {
-        /* Calculates opposite side 4.5 / 6 screen position (75%) */
-        left: calc(100% * (5 / 6));
-        transform: translateX(-50%);
-    }
-}
-
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
    =========================== */
 @media (max-width: 768px) {
-    .showcase-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 25px;
-    }
-
-    .showcase-text {
-        position: static;
-        width: 90%;
-        text-align: center;
-        font-size: 1.65em;
-        line-height: 1.3;
-    }
-
-    .text-left {
-        order: 1;
-        margin-bottom: 20px;
-    }
-
-    .text-right {
-        order: 2;
-        margin-bottom: 30px;
-    }
-
-    .graphic-wrapper {
-        order: 3;
-        width: 195%;
-        max-width: none;
-        display: flex;
-        justify-content: center;
+    .intro-banner {
+        font-size: 1.7em;
+        padding: 40px 15px;
     }
 }
 </style>
@@ -190,35 +138,19 @@ html, body {
     </div>
 </div>
 
-<!-- TOP HERO BANNER -->
+<!-- FIRST IMAGE -->
 <div class="hero-banner">
     <img src="/assets/SabbiGamesLogo4.png" alt="Sabbi Games Banner">
 </div>
 
-<!-- SHOWCASE GRAPHIC SECTION -->
-<div class="showcase-container">
+<!-- MIDDLE TEXT -->
+<div class="intro-banner">
+    Sabbi Games is here to create free fast paced games with no ads
+</div>
 
-    <!-- Left Text Block -->
-    <div class="showcase-text text-left">
-        Sabbi Games is<br>
-        here to create<br>
-        free fast paced<br>
-        games with no ads.<br>
-    </div>
-
-    <!-- Right Text Block -->
-    <div class="showcase-text text-right">
-        Sabbi Games is<br>
-        4 years old<br>
-        3 games in<br>
-        On every Android<br>
-    </div>
-
-    <!-- Main Graphic Image -->
-    <div class="graphic-wrapper">
-        <img src="/assets/0websiteGraphics3.png" alt="Sabbi Games Showcase">
-    </div>
-
+<!-- SECOND IMAGE -->
+<div class="graphic-wrapper">
+    <img src="/assets/0websiteGraphics.png" alt="Sabbi Games Showcase">
 </div>
 
 </body>
