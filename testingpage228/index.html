@@ -94,7 +94,7 @@ html, body {
     text-transform: uppercase;
     color: black;
     background-color: white;
-    padding: 20px 20px; /* Reduced from 60px to 20px (3x less gap) */
+    padding: 20px 20px;
     max-width: 1000px;
     margin: 0 auto;
     line-height: 1.2;
@@ -102,16 +102,63 @@ html, body {
 }
 
 /* ===========================
-   SECOND GRAPHIC IMAGE
+   SECOND GRAPHIC IMAGE & OVERLAY
    =========================== */
 .graphic-wrapper {
     width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .graphic-wrapper img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* Founder Card Overlay over Stone Texture */
+.founder-card {
+    position: absolute;
+    bottom: 15%; /* Positions card directly over lower stone area */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Sharp contrast over grey stone */
+    z-index: 10;
+    width: max-content;
+    max-width: 90%;
+}
+
+.founder-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.founder-info {
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.founder-info h2 {
+    font-size: 2.4em;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.founder-info p {
+    font-size: 1.25em;
+    margin: 3px 0;
+    font-weight: 400;
+    color: #f0f0f0;
 }
 
 /* ===========================
@@ -123,13 +170,31 @@ html, body {
         padding: 12px 15px;
     }
 
-    /* Centers 200% scaled image horizontally relative to screen width */
     .graphic-wrapper img {
         width: 200%;
         max-width: none;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .founder-card {
+        bottom: 12%;
+        gap: 15px;
+    }
+
+    .founder-img {
+        width: 90px;
+        height: 90px;
+        border-width: 2px;
+    }
+
+    .founder-info h2 {
+        font-size: 1.4em;
+    }
+
+    .founder-info p {
+        font-size: 0.85em;
     }
 }
 </style>
@@ -157,9 +222,21 @@ html, body {
     Sabbi Games is here to create free fast paced games with no ads
 </div>
 
-<!-- SECOND IMAGE -->
+<!-- SECOND IMAGE WITH FOUNDER OVERLAY -->
 <div class="graphic-wrapper">
     <img src="/assets/photo1.png" alt="Sabbi Games Showcase">
+
+    <!-- Founder Card over Stone Background -->
+    <div class="founder-card">
+        <img src="/assets/denysInMail.png" alt="Denys Udod" class="founder-img">
+        <div class="founder-info">
+            <h2>Denys Udod</h2>
+            <p>CEO of Sabbi Games</p>
+            <p>17 years old high schooler</p>
+            <p>From Vancouver, BC, Canada</p>
+            <p>Programmer, artist and filmmaker</p>
+        </div>
+    </div>
 </div>
 
 </body>
