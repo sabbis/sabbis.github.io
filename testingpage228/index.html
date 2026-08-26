@@ -89,20 +89,8 @@ html, body {
     letter-spacing: 1px;
 }
 /* ===========================
-   SECOND GRAPHIC IMAGE
-   =========================== */
-.graphic-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-.graphic-wrapper img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-/* ===========================
    WHO IS BEHIND ALL THIS (PHOTO1 + CREATOR OVERLAY)
+   DESKTOP: photo + text overlaid side-by-side on the stone
    =========================== */
 .who-behind {
     width: 100%;
@@ -150,19 +138,49 @@ html, body {
 }
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
+   who-behind-bg zooms/crops as before, but the photo and
+   text drop out of the overlay and stack vertically below it
    =========================== */
 @media (max-width: 768px) {
     .intro-banner {
         font-size: 1.7em;
         padding: 12px 15px;
     }
-    /* Centers 200% scaled image horizontally relative to screen width */
-    .who-behind img {
+
+    .who-behind {
+        overflow: hidden;
+    }
+    .who-behind-bg {
         width: 200%;
         max-width: none;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+    }
+    .creator-photo {
+        position: static;
+        display: block;
+        width: 55%;
+        height: auto;
+        margin: 24px auto 0;
+    }
+    .creator-text {
+        position: static;
+        width: 85%;
+        height: auto;
+        margin: 16px auto 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: black;
+        text-shadow: none;
+    }
+    .creator-name {
+        font-size: clamp(22px, 7vw, 32px);
+    }
+    .creator-details {
+        font-size: clamp(14px, 4.2vw, 18px);
     }
 }
 </style>
