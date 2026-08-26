@@ -123,10 +123,13 @@ html, body {
         padding: 12px 15px;
     }
 
-    /* Sets image to 2x (200%) scale and keeps it horizontally centered */
+    /* Centers 200% scaled image horizontally relative to screen width */
     .graphic-wrapper img {
         width: 200%;
         max-width: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 </style>
