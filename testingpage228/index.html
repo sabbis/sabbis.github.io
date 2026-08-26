@@ -101,6 +101,13 @@ html, body {
     height: auto;
     display: block;
 }
+/* Non-mobile: no special positioning needed on this wrapper —
+   .creator-photo / .creator-text position themselves directly
+   against .who-behind. On mobile this wrapper itself becomes
+   the positioned element (see media query below). */
+.creator-block {
+    position: static;
+}
 .creator-photo {
     position: absolute;
     top: 45.9%;
@@ -138,8 +145,10 @@ html, body {
 }
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
-   who-behind-bg zooms/crops as before, but the photo and
-   text drop out of the overlay and stack vertically below it
+   who-behind-bg zooms/crops as before. The photo + text now
+   live inside .creator-block, which becomes the positioned,
+   absolutely-placed element (anchored on the stone); the photo
+   and text stack inside it in normal flow.
    =========================== */
 @media (max-width: 768px) {
     .intro-banner {
@@ -157,24 +166,31 @@ html, body {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    .creator-block {
+        position: absolute;
+        top: 45.9%;
+        left: 0;
+        width: 100%;
+    }
     .creator-photo {
         position: static;
         display: block;
         width: 55%;
         height: auto;
-        margin: 24px auto 0;
+        margin: 0 auto;
     }
     .creator-text {
         position: static;
         width: 85%;
         height: auto;
-        margin: 16px auto 32px;
+        margin: 16px auto 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        color: black;
-        text-shadow: none;
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
     }
     .creator-name {
         font-size: clamp(22px, 7vw, 32px);
@@ -207,14 +223,16 @@ html, body {
 <!-- WHO IS BEHIND ALL THIS -->
 <div class="who-behind">
     <img class="who-behind-bg" src="/assets/photo1.png" alt="Who is behind all this?">
-    <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod">
-    <div class="creator-text">
-        <div class="creator-name">Denys Udod</div>
-        <div class="creator-details">
-            17 years old high schooler<br>
-            From Vancouver, BC, Canada<br>
-            CEO of Sabbi Games<br>
-            Programmer, artist and filmmaker
+    <div class="creator-block">
+        <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod">
+        <div class="creator-text">
+            <div class="creator-name">Denys Udod</div>
+            <div class="creator-details">
+                17 years old high schooler<br>
+                From Vancouver, BC, Canada<br>
+                CEO of Sabbi Games<br>
+                Programmer, artist and filmmaker
+            </div>
         </div>
     </div>
 </div>
