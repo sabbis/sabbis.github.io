@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sabbi Games</title>
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/favicon.png">
-
 <style>
 /* ===========================
    GLOBAL STYLES
@@ -21,7 +19,6 @@ html, body {
     background-color: white;
     color: black;
 }
-
 /* ===========================
    TOP NAVBAR
    =========================== */
@@ -38,38 +35,31 @@ html, body {
     right: 0;
     z-index: 1000;
 }
-
 .navbar a {
     color: white;
     text-decoration: none;
     font-size: 1.2em;
 }
-
 .nav-icons img {
     width: 30px;
     height: 30px;
     margin-left: 15px;
     transition: transform 0.3s;
 }
-
 .nav-icons img.youtube {
     height: 24px;
 }
-
 .nav-icons img.tiktok {
     width: 24px;
     height: 24px;
 }
-
 .instagram {
     position: relative;
     top: 3px;
 }
-
 .nav-icons img:hover {
     transform: scale(1.2);
 }
-
 /* ===========================
    HERO BANNER (FIRST IMAGE)
    =========================== */
@@ -77,13 +67,11 @@ html, body {
     width: 100%;
     margin-top: 70px; 
 }
-
 .hero-banner img {
     width: 100%;
     height: auto;
     display: block;
 }
-
 /* ===========================
    MIDDLE TEXT SECTION
    =========================== */
@@ -100,71 +88,66 @@ html, body {
     line-height: 1.2;
     letter-spacing: 1px;
 }
-
 /* ===========================
-   SECOND GRAPHIC IMAGE & OVERLAY
+   SECOND GRAPHIC IMAGE
    =========================== */
 .graphic-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
 }
-
 .graphic-wrapper img {
     width: 100%;
     height: auto;
     display: block;
 }
-
-/* Founder Card Overlay over Stone Texture */
-.founder-card {
-    position: absolute;
-    bottom: 18%;
-    left: 30%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 24px; /* Reduced gap to align with smaller image size */
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.95);
-    z-index: 10;
-    width: 400%;
-    max-width: 1150px;
+/* ===========================
+   WHO IS BEHIND ALL THIS (PHOTO1 + CREATOR OVERLAY)
+   =========================== */
+.who-behind {
+    width: 100%;
+    position: relative;
 }
-
-.founder-img {
-    width: 80px; /* Reduced image size on PC */
+.who-behind-bg {
+    width: 100%;
     height: auto;
-    mix-blend-mode: multiply;
-    flex-shrink: 0;
+    display: block;
 }
-
-.founder-info {
-    flex: 1;
-    text-align: left;
-    text-transform: uppercase;
+.creator-photo {
+    position: absolute;
+    top: 45.9%;
+    left: 6.3%;
+    width: 38.66%;
+    height: auto;
 }
-
-/* Text sizes */
-.founder-info h2 {
-    font-size: 3.8em;
-    margin: 0 0 8px 0;
+.creator-text {
+    position: absolute;
+    top: 45.9%;
+    left: 50.11%;
+    width: 44.73%;
+    height: 35.43%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+}
+.creator-name {
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    line-height: 1;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    white-space: nowrap;
+    font-size: clamp(20px, 4.2vw, 74px);
+    margin: 0 0 0.6em 0;
 }
-
-.founder-info p {
-    font-size: 2.1em;
-    margin: 8px 0;
+.creator-details {
+    font-family: 'Oswald', sans-serif;
     font-weight: 400;
-    color: #ffffff;
-    line-height: 1.2;
-    white-space: nowrap;
+    font-size: clamp(13px, 2.6vw, 46px);
+    line-height: 1.4;
 }
-
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
    =========================== */
@@ -173,7 +156,7 @@ html, body {
         font-size: 1.7em;
         padding: 12px 15px;
     }
-
+    /* Centers 200% scaled image horizontally relative to screen width */
     .graphic-wrapper img {
         width: 200%;
         max-width: none;
@@ -181,33 +164,10 @@ html, body {
         left: 50%;
         transform: translateX(-50%);
     }
-
-    .founder-card {
-        bottom: 12%;
-        gap: 10px;
-        width: 94%;
-    }
-
-    .founder-img {
-        width: 25px; /* Reduced image size on mobile */
-    }
-
-    .founder-info h2 {
-        font-size: 1.6em;
-        white-space: normal;
-    }
-
-    .founder-info p {
-        font-size: 0.85em;
-        margin: 3px 0;
-        white-space: normal;
-    }
 }
 </style>
 </head>
-
 <body>
-
 <!-- NAVBAR -->
 <div class="navbar">
     <a href="https://sabbigames.com">Sabbi Games</a>
@@ -217,33 +177,31 @@ html, body {
         <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
     </div>
 </div>
-
 <!-- FIRST IMAGE -->
 <div class="hero-banner">
     <img src="/assets/SabbiGamesLogo4.png" alt="Sabbi Games Banner">
 </div>
-
 <!-- MIDDLE TEXT -->
 <div class="intro-banner">
     Sabbi Games is here to create free fast paced games with no ads
 </div>
-
-<!-- SECOND IMAGE WITH FOUNDER OVERLAY -->
+<!-- SECOND IMAGE -->
 <div class="graphic-wrapper">
-    <img src="/assets/photo1.png" alt="Sabbi Games Showcase">
-
-    <!-- Founder Card over Stone Background -->
-    <div class="founder-card">
-        <img src="/assets/denysInMail2.png" alt="Denys Udod" class="founder-img">
-        <div class="founder-info">
-            <h2>Denys Udod</h2>
-            <p>CEO of Sabbi Games</p>
-            <p>17 years old high schooler</p>
-            <p>From Vancouver, BC, Canada</p>
-            <p>Programmer, artist and filmmaker</p>
+    <img src="/assets/0websiteGraphics.png" alt="Sabbi Games Showcase">
+</div>
+<!-- WHO IS BEHIND ALL THIS -->
+<div class="who-behind">
+    <img class="who-behind-bg" src="/assets/photo1.png" alt="Who is behind all this?">
+    <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod">
+    <div class="creator-text">
+        <div class="creator-name">Denys Udod</div>
+        <div class="creator-details">
+            17 years old high schooler<br>
+            From Vancouver, BC, Canada<br>
+            CEO of Sabbi Games<br>
+            Programmer, artist and filmmaker
         </div>
     </div>
 </div>
-
 </body>
 </html>
