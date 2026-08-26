@@ -119,25 +119,27 @@ html, body {
 /* Founder Card Overlay over Stone Texture */
 .founder-card {
     position: absolute;
-    bottom: 15%; /* Positions card directly over lower stone area */
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 35px;
     color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Sharp contrast over grey stone */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.95);
     z-index: 10;
-    width: max-content;
-    max-width: 90%;
+    width: 85%;
+    max-width: 950px;
 }
 
+/* Image cropped to portrait ratio to strip empty horizontal margins */
 .founder-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+    width: 170px; /* Narrower width */
+    height: 280px; /* Taller height */
+    object-fit: cover; /* Crops out left & right unused space from 1k x 1k image */
+    object-position: center;
     border: 3px solid white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     flex-shrink: 0;
 }
 
@@ -146,19 +148,21 @@ html, body {
     text-transform: uppercase;
 }
 
+/* Increased Font Sizes */
 .founder-info h2 {
-    font-size: 2.4em;
-    margin: 0 0 4px 0;
+    font-size: 3.2em;
+    margin: 0 0 6px 0;
     font-weight: 700;
     line-height: 1;
     letter-spacing: 1px;
 }
 
 .founder-info p {
-    font-size: 1.25em;
-    margin: 3px 0;
+    font-size: 1.6em;
+    margin: 6px 0;
     font-weight: 400;
-    color: #f0f0f0;
+    color: #f5f5f5;
+    line-height: 1.2;
 }
 
 /* ===========================
@@ -179,22 +183,24 @@ html, body {
     }
 
     .founder-card {
-        bottom: 12%;
-        gap: 15px;
+        bottom: 7%;
+        gap: 18px;
+        width: 92%;
     }
 
     .founder-img {
-        width: 90px;
-        height: 90px;
+        width: 105px;
+        height: 170px;
         border-width: 2px;
     }
 
     .founder-info h2 {
-        font-size: 1.4em;
+        font-size: 1.8em;
     }
 
     .founder-info p {
-        font-size: 0.85em;
+        font-size: 0.95em;
+        margin: 3px 0;
     }
 }
 </style>
@@ -224,7 +230,7 @@ html, body {
 
 <!-- SECOND IMAGE WITH FOUNDER OVERLAY -->
 <div class="graphic-wrapper">
-    <img src="/assets/photo1.png" alt="Sabbi Games Showcase">
+    <img src="/assets/0websiteGraphics.png" alt="Sabbi Games Showcase">
 
     <!-- Founder Card over Stone Background -->
     <div class="founder-card">
