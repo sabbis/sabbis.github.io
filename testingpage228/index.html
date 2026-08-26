@@ -105,12 +105,13 @@ html, body {
    SECOND GRAPHIC IMAGE & OVERLAY
    =========================== */
 .graphic-wrapper {
-    width: 100%;
+    width: 50%; /* 2x smaller on PC */
+    margin: 0 auto; /* Centered on page */
     overflow: hidden;
     position: relative;
 }
 
-.graphic-wrapper img {
+.graphic-wrapper > img {
     width: 100%;
     height: auto;
     display: block;
@@ -119,37 +120,36 @@ html, body {
 /* Founder Card Overlay over Stone Texture */
 .founder-card {
     position: absolute;
-    bottom: 18%; /* Lifted higher so it stays inside the stone graphic area */
-    left: 20%;
+    bottom: 12%; 
+    left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 60px; /* Large space between left image and right text */
+    gap: 30px;
     color: white;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.95);
     z-index: 10;
-    width: 70%;
-    max-width: 1150px; /* Expanded container width across the stone area */
+    width: 85%;
+    max-width: 900px;
 }
 
 .founder-img {
-    width: 320px; /* Controlled width on the left side */
+    width: 160px; /* Scaled down for 50% wrapper */
     height: auto;
-    mix-blend-mode: multiply; /* Removes the white box background around the image file */
+    mix-blend-mode: multiply;
     flex-shrink: 0;
 }
 
 .founder-info {
-    flex: 1; /* Allows text to occupy the entire right side of the screen */
+    flex: 1;
     text-align: left;
     text-transform: uppercase;
 }
 
-/* Large, readable text sizes */
 .founder-info h2 {
-    font-size: 3.8em;
-    margin: 0 0 8px 0;
+    font-size: 2.2em;
+    margin: 0 0 6px 0;
     font-weight: 700;
     line-height: 1;
     letter-spacing: 1px;
@@ -157,12 +157,12 @@ html, body {
 }
 
 .founder-info p {
-    font-size: 2.1em;
-    margin: 8px 0;
+    font-size: 1.2em;
+    margin: 4px 0;
     font-weight: 400;
     color: #ffffff;
     line-height: 1.2;
-    white-space: nowrap; /* Prevents text lines from squishing into multiple lines */
+    white-space: nowrap;
 }
 
 /* ===========================
@@ -174,32 +174,39 @@ html, body {
         padding: 12px 15px;
     }
 
-    .graphic-wrapper img {
-        width: 200%;
-        max-width: none;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+    .graphic-wrapper {
+        width: 33.33%; /* 3x smaller on mobile */
+        margin: 0 auto;
+    }
+
+    .graphic-wrapper > img {
+        width: 100%;
+        max-width: 100%;
+        position: static;
+        left: auto;
+        transform: none;
     }
 
     .founder-card {
-        bottom: 12%;
-        gap: 15px;
-        width: 94%;
+        bottom: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 10px;
+        width: 90%;
     }
 
     .founder-img {
-        width: 130px;
+        width: 65px;
     }
 
     .founder-info h2 {
-        font-size: 1.6em;
+        font-size: 0.85em;
         white-space: normal;
     }
 
     .founder-info p {
-        font-size: 0.85em;
-        margin: 3px 0;
+        font-size: 0.5em;
+        margin: 2px 0;
         white-space: normal;
     }
 }
