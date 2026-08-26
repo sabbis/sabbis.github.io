@@ -90,7 +90,7 @@ html, body {
 .showcase-container {
     position: relative;
     width: 100%;
-    background-color: white; /* Changed from black to white */
+    background-color: white;
     overflow: hidden;
 }
 
@@ -105,9 +105,9 @@ html, body {
 }
 
 .showcase-text {
-    color: black; /* Changed from white to black */
-    font-size: 1.6em;
-    line-height: 1.4;
+    color: black;
+    font-size: 2.1em; /* Increased font size for desktop */
+    line-height: 1.3;
     text-transform: uppercase;
     font-weight: 700;
     z-index: 10;
@@ -119,18 +119,19 @@ html, body {
 @media (min-width: 769px) {
     .showcase-text {
         position: absolute;
-        top: 50px;
-        width: 30%;
+        top: 200px; /* Moved down to sit directly beside the screenshot cards */
+        width: 35%;
+        text-align: center; /* Centers text alignment within each column */
     }
 
     .text-left {
-        left: 5%;
-        text-align: right;
+        left: 25%; /* Positioned at 1/4 of the screen width */
+        transform: translateX(-50%); /* Perfectly centers the block on the 25% mark */
     }
 
-    text-right {
-        right: 5%;
-        text-align: left;
+    .text-right {
+        left: 75%; /* Positioned at 3/4 of the screen width */
+        transform: translateX(-50%); /* Perfectly centers the block on the 75% mark */
     }
 }
 
@@ -149,23 +150,23 @@ html, body {
         position: static;
         width: 90%;
         text-align: center;
-        font-size: 1.1em;
+        font-size: 1.65em; /* 1.5x larger font on mobile */
         line-height: 1.3;
     }
 
     .text-left {
         order: 1;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .text-right {
         order: 2;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .graphic-wrapper {
         order: 3;
-        width: 130%;
+        width: 195%; /* 1.5x larger graphic scaling on mobile */
         max-width: none;
         display: flex;
         justify-content: center;
