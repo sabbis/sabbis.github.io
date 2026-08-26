@@ -120,11 +120,13 @@ html, body {
 @media (max-width: 768px) {
     .intro-banner {
         font-size: 1.7em;
-        padding: 12px 15px; /* Reduced gap for phone screens */
+        padding: 12px 15px;
     }
 
-    .graphic-wrapper {
-        width: 200%; /* Resets graphic size to fit normal screen width */
+    /* Sets image to 2x (200%) scale and keeps it horizontally centered */
+    .graphic-wrapper img {
+        width: 200%;
+        max-width: none;
     }
 }
 </style>
