@@ -90,7 +90,8 @@ html, body {
 }
 /* ===========================
    WHO IS BEHIND ALL THIS (PHOTO1 + CREATOR OVERLAY)
-   DESKTOP: photo + text overlaid side-by-side on the stone
+   DESKTOP: photo + text overlaid side-by-side on the stone,
+   Canadian ribbon centered below both
    =========================== */
 .who-behind {
     width: 100%;
@@ -143,12 +144,20 @@ html, body {
     font-size: clamp(13px, 2.6vw, 46px);
     line-height: 1.4;
 }
+.canadian-banner {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    width: 55%;
+    height: auto;
+    transform: translateX(-50%);
+}
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
-   who-behind-bg zooms/crops as before. The photo + text now
-   live inside .creator-block, which becomes the positioned,
-   absolutely-placed element (anchored on the stone); the photo
-   and text stack inside it in normal flow.
+   who-behind-bg zooms/crops as before. The photo, text, and
+   banner now live inside .creator-block, which becomes the
+   positioned, absolutely-placed element (anchored on the
+   stone); they stack inside it in normal flow.
    =========================== */
 @media (max-width: 768px) {
     .intro-banner {
@@ -169,7 +178,7 @@ html, body {
 
     .creator-block {
         position: absolute;
-        top: 50%;
+        top: 48%;
         left: 0;
         width: 100%;
     }
@@ -184,7 +193,7 @@ html, body {
         position: static;
         width: 85%;
         height: auto;
-        margin: 0px auto 0;
+        margin: 6px auto 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -198,6 +207,13 @@ html, body {
     }
     .creator-details {
         font-size: clamp(14px, 4.2vw, 18px);
+    }
+    .canadian-banner {
+        position: static;
+        display: block;
+        width: 70%;
+        height: auto;
+        margin: 6px auto 0;
     }
 }
 </style>
@@ -229,14 +245,13 @@ html, body {
         <div class="creator-text">
             <div class="creator-name">Denys Udod</div>
             <div class="creator-details">
-                CEO of Sabbi Games<br>
-                17-year-old high schooler<br>
+                17 years old high schooler<br>
                 From Vancouver, BC, Canada<br>
-                Social media guy: YT, TT, IG<br>
-                Programmer, artist, filmmaker<br>
-                And just an awesome and honest guy!
+                CEO of Sabbi Games<br>
+                Programmer, artist and filmmaker
             </div>
         </div>
+        <img class="canadian-banner" src="/assets/proudlyCanadian.png" alt="Proudly Canadian">
     </div>
 </div>
 </body>
