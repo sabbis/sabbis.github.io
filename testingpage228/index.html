@@ -156,14 +156,14 @@ html, body {
    Layer order (bottom to top): mine background w/ rails,
    rolling cart, "Delivering you quality..." text, jagged rock
    overlay that hides most of the track except a few gaps.
-   Negative margin-top tucks it under photo4's uneven bottom
-   edge so there's no seam.
+   Negative margin-top (in vw, so it scales with the image)
+   tucks it under photo4's uneven bottom edge so there's no seam.
    =========================== */
 .mine-section {
     width: 100%;
     position: relative;
     overflow: hidden;
-    margin-top: -6px;
+    margin-top: -3vw;
 }
 .mine-bg {
     width: 100%;
@@ -180,7 +180,7 @@ html, body {
 }
 .mine-text {
     position: absolute;
-    top: 38%;
+    top: 28%;
     left: 50%;
     width: 80%;
     transform: translateX(-50%);
@@ -190,7 +190,7 @@ html, body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: clamp(20px, 3.2vw, 52px);
+    font-size: clamp(28px, 4.2vw, 68px);
     z-index: 11;
 }
 .mine-overlay {
@@ -273,8 +273,8 @@ html, body {
         width: 20%;
     }
     .mine-text {
-        top: 34%;
-        font-size: clamp(16px, 5vw, 26px);
+        top: 26%;
+        font-size: clamp(20px, 6.5vw, 34px);
     }
 }
 </style>
@@ -325,17 +325,32 @@ html, body {
 </div>
 
 <script>
+const mineSection = document.querySelector('.mine-section');
+const cart = document.querySelector('.mine-cart');
+
 function updateCartPosition() {
-    const section = document.querySelector('.mine-section');
-    const cart = document.querySelector('.mine-cart');
-    if (!section || !cart) return;
-    const rect = section.getBoundingClientRect();
+    if (!mineSection || !cart) return;
+    const rect = mineSection.getBoundingClientRect();
     const vh = window.innerHeight;
+
+    // Section not in view yet (below the viewport) or already
+    // fully scrolled past (above the viewport) — park the cart
+    // off-screen and do nothing else.
+    if (rect.top >= vh || rect.bottom <= 0) {
+        cart.style.left = '-15%';
+        return;
+    }
+
+    // 0 = section's top edge just reached the bottom of the screen
+    // 0.5 = section is vertically centered in the viewport
+    // 1 = section's bottom edge has reached the top of the screen
     let progress = (vh - rect.top) / (vh + rect.height);
     progress = Math.max(0, Math.min(1, progress));
-    const leftPercent = -15 + progress * 130; // travels fully off-screen left to fully off-screen right
+
+    const leftPercent = -15 + progress * 130; // fully off-left to fully off-right
     cart.style.left = leftPercent + '%';
 }
+
 window.addEventListener('scroll', updateCartPosition, { passive: true });
 window.addEventListener('resize', updateCartPosition);
 window.addEventListener('load', updateCartPosition);
