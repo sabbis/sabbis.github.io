@@ -88,7 +88,7 @@ html, body {
     letter-spacing: 1px;
 }
 /* ===========================
-   WHO IS BEHIND ALL THIS (PHOTO3 + CREATOR OVERLAY)
+   WHO IS BEHIND ALL THIS (PHOTO4 + CREATOR OVERLAY)
    DESKTOP: photo + text overlaid side-by-side on the stone,
    Canadian ribbon centered below both
    =========================== */
@@ -152,6 +152,57 @@ html, body {
     transform: translateX(-50%);
 }
 /* ===========================
+   MINE CART SECTION
+   Layer order (bottom to top): mine background w/ rails,
+   rolling cart, "Delivering you quality..." text, jagged rock
+   overlay that hides most of the track except a few gaps.
+   Negative margin-top tucks it under photo4's uneven bottom
+   edge so there's no seam.
+   =========================== */
+.mine-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-top: -6px;
+}
+.mine-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.mine-cart {
+    position: absolute;
+    top: 75.8%;
+    left: -15%;
+    width: 13%;
+    height: auto;
+    z-index: 10;
+}
+.mine-text {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(20px, 3.2vw, 52px);
+    z-index: 11;
+}
+.mine-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 12;
+    pointer-events: none;
+}
+/* ===========================
    MOBILE STYLES (Screen <= 768px)
    who-behind-bg zooms/crops as before. The photo, text, and
    banner now live inside .creator-block, which becomes the
@@ -177,7 +228,7 @@ html, body {
 
     .creator-block {
         position: absolute;
-        top: 52%;
+        top: 50%;
         left: 0;
         width: 100%;
     }
@@ -216,6 +267,15 @@ html, body {
         left: auto;
         transform: none;
     }
+
+    .mine-cart {
+        top: 68.7%;
+        width: 20%;
+    }
+    .mine-text {
+        top: 34%;
+        font-size: clamp(16px, 5vw, 26px);
+    }
 }
 </style>
 </head>
@@ -231,7 +291,7 @@ html, body {
 </div>
 <!-- FIRST IMAGE -->
 <div class="hero-banner">
-    <img src="/assets/SabbiGamesLogo5.png" alt="Sabbi Games Banner">
+    <img src="/assets/SabbiGamesLogo4.png" alt="Sabbi Games Banner">
 </div>
 <!-- MIDDLE TEXT -->
 <div class="intro-banner">
@@ -240,7 +300,7 @@ html, body {
 
 <!-- WHO IS BEHIND ALL THIS -->
 <div class="who-behind">
-    <img class="who-behind-bg" src="/assets/photo3.png" alt="Who is behind all this?">
+    <img class="who-behind-bg" src="/assets/photo4.png" alt="Who is behind all this?">
     <div class="creator-block">
         <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod">
         <div class="creator-text">
@@ -255,5 +315,31 @@ html, body {
         <img class="canadian-banner" src="/assets/proudlyCanadian2.png" alt="Proudly Canadian">
     </div>
 </div>
+
+<!-- MINE CART -->
+<div class="mine-section">
+    <img class="mine-bg" src="/assets/cartBottom.png" alt="Mine tunnel">
+    <img class="mine-cart" src="/assets/cart.png" alt="Mine cart">
+    <div class="mine-text">Delivering you quality...</div>
+    <img class="mine-overlay" src="/assets/cartTop.png" alt="">
+</div>
+
+<script>
+function updateCartPosition() {
+    const section = document.querySelector('.mine-section');
+    const cart = document.querySelector('.mine-cart');
+    if (!section || !cart) return;
+    const rect = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+    let progress = (vh - rect.top) / (vh + rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+    const leftPercent = -15 + progress * 130; // travels fully off-screen left to fully off-screen right
+    cart.style.left = leftPercent + '%';
+}
+window.addEventListener('scroll', updateCartPosition, { passive: true });
+window.addEventListener('resize', updateCartPosition);
+window.addEventListener('load', updateCartPosition);
+updateCartPosition();
+</script>
 </body>
 </html>
