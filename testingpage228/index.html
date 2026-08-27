@@ -107,10 +107,7 @@ html, body {
    against .who-behind. On mobile this wrapper itself becomes
    the positioned element (see media query below). */
 .creator-block {
-    position: absolute;
-    top: 51%;   /* was 48% */
-    left: 0;
-    width: 100%;
+    position: static;
 }
 .creator-photo {
     position: absolute;
@@ -148,11 +145,12 @@ html, body {
     line-height: 1.4;
 }
 .canadian-banner {
-    position: static;
-    display: block;
-    width: 70%;
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    width: 55%;
     height: auto;
-    margin: 6px auto 0;
+    transform: translateX(-50%);
 }
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
@@ -208,7 +206,7 @@ html, body {
         margin: 0 0 0.2em 0;
     }
     .creator-details {
-    font-size: clamp(16px, 5vw, 22px);   /* was clamp(14px, 4.2vw, 18px) */
+        font-size: clamp(16px, 5vw, 22px);
     }
     .canadian-banner {
         position: static;
