@@ -6,6 +6,10 @@
 <meta property="og:title" content="Sabbi Games - Free mobile games with no ads">
 <meta property="og:description" content="Sabbi Games is here to create awesome, free, fast-paced games with no ads or in-game-purchases. Crazy Way, Tank Rush - were all created by Sabbi.">
 <title>Sabbi Games</title>
+<!-- Preconnect speeds up the Google Fonts handshake so the
+     font file starts downloading sooner -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -290,14 +294,6 @@ html, body {
         transform: none;
     }
 
-    /* width was accidentally set to 100% here, which made the
-       cart taller than the whole mine section (its own aspect
-       ratio is taller than the background's), pushing most of
-       it outside the section's clipped bounds — that's why it
-       disappeared. top: 68.7% is specifically calibrated for a
-       20% width (it's what lines the wheels up with the actual
-       rail pixels in the mine image), so width has to stay
-       paired with that value. */
     .mine-cart {
         top: 0.7%;
         width: 80%;
@@ -314,14 +310,16 @@ html, body {
 <div class="navbar">
     <a href="https://sabbigames.com">Sabbi Games</a>
     <div class="nav-icons">
-        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
-        <a href="https://www.instagram.com/sabbigames"><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" width="30" height="24" loading="lazy"></a>
+        <a href="https://www.instagram.com/sabbigames"><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram" width="30" height="30" loading="lazy"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok" width="24" height="24" loading="lazy"></a>
     </div>
 </div>
-<!-- FIRST IMAGE -->
+<!-- FIRST IMAGE: above the fold — load eagerly, not lazily,
+     and mark it as the priority image so the browser fetches
+     it first (it's the largest visible thing on first paint). -->
 <div class="hero-banner">
-    <img src="/assets/SabbiGamesLogo4.png" alt="Sabbi Games Banner">
+    <img src="/assets/SabbiGamesLogo4.png" alt="Sabbi Games Banner" width="3168" height="516" fetchpriority="high">
 </div>
 <!-- MIDDLE TEXT -->
 <div class="intro-banner">
@@ -330,9 +328,13 @@ html, body {
 
 <!-- WHO IS BEHIND ALL THIS -->
 <div class="who-behind">
-    <img class="who-behind-bg" src="/assets/photo4.png" alt="Who is behind all this?">
+    <!-- TODO: replace width/height below with photo4.png's real
+         pixel dimensions (right-click the file > Properties >
+         Details on Windows, or Get Info on Mac) so the browser
+         reserves the correct space instead of guessing. -->
+    <img class="who-behind-bg" src="/assets/photo4.png" alt="Who is behind all this?" width="1746" height="2961" loading="lazy">
     <div class="creator-block">
-        <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod">
+        <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod" width="626" height="973" loading="lazy">
         <div class="creator-text">
             <div class="creator-name">Denys Udod</div>
             <div class="creator-details">
@@ -342,21 +344,26 @@ html, body {
                 Programmer, artist and filmmaker
             </div>
         </div>
-        <img class="canadian-banner" src="/assets/proudlyCanadian2.png" alt="Proudly Canadian">
+        <!-- TODO: replace with proudlyCanadian2.png's real
+             dimensions — this is the size of the original
+             proudlyCanadian.png, which may not match the "2" version. -->
+        <img class="canadian-banner" src="/assets/proudlyCanadian2.png" alt="Proudly Canadian" width="1806" height="592" loading="lazy">
     </div>
 </div>
 
 <!-- MINE CART -->
 <div class="mine-section">
-    <img class="mine-bg" src="/assets/cartBottom.png" alt="Mine tunnel">
-    <img class="mine-cart" src="/assets/cart.png" alt="Mine cart">
+    <img class="mine-bg" src="/assets/cartBottom.png" alt="Mine tunnel" width="1672" height="776" loading="lazy">
+    <img class="mine-cart" src="/assets/cart.png" alt="Mine cart" width="1408" height="768" loading="lazy">
     <div class="mine-text">Delivering you quality...</div>
-    <img class="mine-overlay" src="/assets/cartTop.png" alt="">
+    <img class="mine-overlay" src="/assets/cartTop.png" alt="" width="1672" height="776" loading="lazy">
 </div>
 
 <!-- FIELD -->
+<!-- TODO: replace width/height below with field.png's real
+     pixel dimensions once you have the file's actual size. -->
 <div class="field-section">
-    <img class="field-img" src="/assets/field.png" alt="Field">
+    <img class="field-img" src="/assets/field.png" alt="Field" width="1920" height="1080" loading="lazy">
 </div>
 
 <script>
@@ -386,7 +393,21 @@ function updateCartPosition() {
     cart.style.left = leftPercent + '%';
 }
 
-window.addEventListener('scroll', updateCartPosition, { passive: true });
+// Throttle scroll handling to once per animation frame instead of
+// running on every single scroll event (which can fire dozens of
+// times per second and is unnecessary work for the browser).
+let ticking = false;
+function onScroll() {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            updateCartPosition();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
 window.addEventListener('resize', updateCartPosition);
 window.addEventListener('load', updateCartPosition);
 updateCartPosition();
