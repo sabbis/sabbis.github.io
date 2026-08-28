@@ -90,11 +90,14 @@ html, body {
 /* ===========================
    WHO IS BEHIND ALL THIS (PHOTO4 + CREATOR OVERLAY)
    DESKTOP: photo + text overlaid side-by-side on the stone,
-   Canadian ribbon centered below both
+   Canadian ribbon centered below both.
+   z-index: 2 so photo4's jagged bottom edge sits ON TOP of the
+   mine section below it, hiding the seam from photo4's side.
    =========================== */
 .who-behind {
     width: 100%;
     position: relative;
+    z-index: 2;
 }
 .who-behind-bg {
     width: 100%;
@@ -156,14 +159,19 @@ html, body {
    Layer order (bottom to top): mine background w/ rails,
    rolling cart, "Delivering you quality..." text, jagged rock
    overlay that hides most of the track except a few gaps.
-   Negative margin-top (in vw, so it scales with the image)
-   tucks it under photo4's uneven bottom edge so there's no seam.
+   z-index: 1 (lower than .who-behind's z-index: 2) so photo4
+   overlaps ON TOP of this section, not the other way around.
    =========================== */
 .mine-section {
     width: 100%;
     position: relative;
+    z-index: 1;
     overflow: hidden;
-    margin-top: -3vw;
+    /* -3vw scales the overlap with the image itself; the -10px
+       is the extra fixed nudge you asked for. Change ONLY the
+       "10px" number below to move the mine section further up
+       or down under photo4. */
+    margin-top: calc(-3vw - 10px);
 }
 .mine-bg {
     width: 100%;
@@ -201,6 +209,18 @@ html, body {
     height: auto;
     z-index: 12;
     pointer-events: none;
+}
+/* ===========================
+   FIELD SECTION (NEXT GRAPHIC)
+   =========================== */
+.field-section {
+    width: 100%;
+    position: relative;
+}
+.field-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
@@ -318,10 +338,15 @@ html, body {
 
 <!-- MINE CART -->
 <div class="mine-section">
-    <img class="mine-bg" src="/assets/cartBottom.png" alt="Mine tunnel">
+    <img class="mine-bg" src="/assets/mine.png" alt="Mine tunnel">
     <img class="mine-cart" src="/assets/cart.png" alt="Mine cart">
     <div class="mine-text">Delivering you quality...</div>
     <img class="mine-overlay" src="/assets/cartTop.png" alt="">
+</div>
+
+<!-- FIELD -->
+<div class="field-section">
+    <img class="field-img" src="/assets/field.png" alt="Field">
 </div>
 
 <script>
