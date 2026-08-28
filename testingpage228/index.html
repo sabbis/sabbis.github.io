@@ -169,10 +169,10 @@ html, body {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    /* -3vw scales the overlap with the image itself; the -10px
-       is the extra fixed nudge you asked for. Change ONLY the
-       "10px" number below to move the mine section further up
-       or down under photo4. */
+    /* -3vw scales the overlap with the image itself; the -40px
+       is the extra fixed nudge. Change ONLY the "40px" number
+       below to move the mine section further up or down under
+       photo4. */
     margin-top: calc(-3vw - 40px);
 }
 .mine-bg {
@@ -290,9 +290,17 @@ html, body {
         transform: none;
     }
 
+    /* width was accidentally set to 100% here, which made the
+       cart taller than the whole mine section (its own aspect
+       ratio is taller than the background's), pushing most of
+       it outside the section's clipped bounds — that's why it
+       disappeared. top: 68.7% is specifically calibrated for a
+       20% width (it's what lines the wheels up with the actual
+       rail pixels in the mine image), so width has to stay
+       paired with that value. */
     .mine-cart {
         top: 68.7%;
-        width: 100%;
+        width: 20%;
     }
     .mine-text {
         top: 26%;
