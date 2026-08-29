@@ -3,32 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sabbi Games - Crazy Way</title>
-
-<!-- Google Fonts (closest to Tw Cen MT Condensed) -->
+<meta name="description" content="Sabbi Games is here to create awesome, free, fast-paced games with no ads or in-game-purchases. Crazy Way, Tank Rush - were all created by Sabbi.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Sabbi Games - Free mobile games with no ads">
+<meta property="og:description" content="Sabbi Games is here to create awesome, free, fast-paced games with no ads or in-game-purchases. Crazy Way, Tank Rush - were all created by Sabbi.">
+<title>Sabbi Games</title>
+<!-- Preconnect speeds up the Google Fonts handshake so the
+     font file starts downloading sooner -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-
-<link rel="icon" type="image/png" href="favicon.png">
-
-
-<meta property="og:title" content="Crazy Way - Play for free!">
-<meta property="og:description" content="Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal.">
-<meta property="og:image" content="https://sabbigames.com/assets/CubeIcon.png">
-<meta property="og:url" content="https://sabbigames.com">
-<meta property="og:type" content="website">
-   
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JF3CYNTV0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5JF3CYNTV0');
-</script>
-
-   
+<link rel="icon" type="image/png" href="/sabbiIcon.png">
 <style>
 /* ===========================
    GLOBAL STYLES
@@ -41,13 +27,6 @@ html, body {
     background-color: white;
     color: black;
 }
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* ===========================
    TOP NAVBAR
    =========================== */
@@ -57,558 +36,561 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px; /* increased by 10px top/bottom */
+    padding: 20px 20px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
 }
-
 .navbar a {
     color: white;
     text-decoration: none;
     font-size: 1.2em;
 }
-
 .nav-icons img {
     width: 30px;
     height: 30px;
     margin-left: 15px;
     transition: transform 0.3s;
 }
-
-/* Adjust specific logos (YouTube/TikTok) */
 .nav-icons img.youtube {
-    height: 24px; /* slightly shorter */
-}
-
-.nav-icons img.tiktok {
-    width: 24px; /* slightly smaller */
     height: 24px;
 }
-
+.nav-icons img.tiktok {
+    width: 24px;
+    height: 24px;
+}
 .instagram {
     position: relative;
-    top: +3px; /* moves Instagram icon 3px up */
+    top: 3px;
 }
-
 .nav-icons img:hover {
     transform: scale(1.2);
 }
-
 /* ===========================
-   HERO SECTION (LOGO + BACKGROUND TEXT)
+   HERO BANNER (FIRST IMAGE)
    =========================== */
-.hero {
-    margin-top: 60px; 
-    position: relative;
-    height: 350px;
-    overflow: visible;
-    background-color: black;
+.hero-banner {
+    width: 100%;
+    margin-top: 70px; 
 }
-
-.bg-text-row {
-    position: absolute;
-    white-space: nowrap;
-    font-size: 60px;
-    opacity: 0.8;
-    color: white;
-}
-
-.bg-text-row:nth-child(1) { top: 40px; animation: scrollRight 20s linear infinite; }
-.bg-text-row:nth-child(2) { top: 120px; animation: scrollLeft 20s linear infinite; }
-.bg-text-row:nth-child(3) { top: 200px; animation: scrollRight 20s linear infinite; }
-
-.hero-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    max-width: 345px;
-}
-
-/* ===========================
-   TITLE BELOW LOGO
-   =========================== */
-.main-title {
-    font-size: 4em;
-    text-align: center;
-    margin: 40px 0;
-}
-
-/* ===========================
-   DESCRIPTION SECTIONS
-   =========================== */
-.section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 20px;
-    gap: 40px;
-}
-
-.section img {
-    max-width: 400px;
+.hero-banner img {
     width: 100%;
     height: auto;
-    
+    display: block;
 }
-
-.section p {
-    font-size: 1.9em;
-    line-height: 1.4;
-    max-width: 500px;
-}
-
-.section.reverse { flex-direction: row-reverse; }
-
 /* ===========================
-   FULL-WIDTH IMAGE SECTION
+   MIDDLE TEXT SECTION
    =========================== */
-.section.new-text {
-    flex-direction: column;       /* stack items vertically */
-    text-align: center;           /* center text horizontally */
-    margin: 80px 0;               /* space above/below */
-}
-
-.section.new-text p {
-    font-size: 2.8em;             /* slightly bigger than normal text */
-    font-weight: 700;             /* bold */
-    line-height: 1.4;
-}
-   
-.full-width-image img {
-    width: 100%;
-    height: auto;
-}
-
-/* ===========================
-   RELEASE INFO SECTION
-   =========================== */
-.release {
+.intro-banner {
     text-align: center;
-    padding: 40px 20px;
-}
-
-.release h2 { font-size: 2.4em; margin-bottom: 20px; }
-.release p { font-size: 1.8em; margin-bottom: 20px; }
-
-.release-icons img {
-    width: 40px;
-    height: 40px;
-    margin: 0 20px;
-    transition: transform 0.3s;
-    filter: invert(1);
-}
-
-.release-icons img:hover { transform: scale(1.2); }
-
-
-   /* ===========================
-      NEWS SECTION
-   =========================== */
-.news-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.news-title {
     font-size: 2.8em;
     font-weight: 700;
-    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: black;
+    padding: 20px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.2;
+    letter-spacing: 1px;
 }
-
-.news-container {
+/* ===========================
+   WHO IS BEHIND ALL THIS (PHOTO4 + CREATOR OVERLAY)
+   DESKTOP: photo + text overlaid side-by-side on the stone,
+   Canadian ribbon centered below both.
+   z-index: 3 so photo4's jagged bottom edge sits ON TOP of the
+   mine section below it, hiding the seam from photo4's side.
+   =========================== */
+.who-behind {
+    width: 100%;
+    position: relative;
+    z-index: 3;
+}
+.who-behind-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* Non-mobile: no special positioning needed on this wrapper —
+   .creator-photo / .creator-text position themselves directly
+   against .who-behind. On mobile this wrapper itself becomes
+   the positioned element (see media query below). */
+.creator-block {
+    position: static;
+}
+.creator-photo {
+    position: absolute;
+    top: 48%;
+    left: 6.3%;
+    width: 38.66%;
+    height: auto;
+}
+.creator-text {
+    position: absolute;
+    top: 45.9%;
+    left: 50.11%;
+    width: 44.73%;
+    height: 35.43%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+}
+.creator-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(20px, 4.2vw, 74px);
+    margin: 0 0 0.6em 0;
+}
+.creator-details {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: clamp(13px, 2.6vw, 46px);
+    line-height: 1.4;
+}
+.canadian-banner {
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    width: 55%;
+    height: auto;
+    transform: translateX(-50%);
+}
+/* ===========================
+   MINE CART SECTION
+   Layer order (bottom to top): mine background w/ rails,
+   rolling cart, "Delivering you quality..." text, jagged rock
+   overlay that hides most of the track except a few gaps.
+   z-index: 2 (lower than .who-behind's z-index: 3, higher than
+   .field-section's z-index: 1) so each section's jagged top
+   edge tucks under the one above it, hiding the seams.
+   =========================== */
+.mine-section {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    /* -3vw scales the overlap with the image itself; the -40px
+       is the extra fixed nudge. Change ONLY the "40px" number
+       below to move the mine section further up or down under
+       photo4. */
+    margin-top: calc(-3vw - 40px);
+}
+.mine-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.mine-cart {
+    position: absolute;
+    top: 0.8%;
+    left: -60%;
+    width: 80%;
+    height: auto;
+    z-index: 10;
+}
+.mine-text {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(28px, 4.2vw, 68px);
+    z-index: 11;
+}
+.mine-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 12;
+    pointer-events: none;
+}
+/* ===========================
+   FIELD SECTION (field3.png)
+   Layout (top to bottom, all against the one tall image):
+   - "SABBI GAMES PRESENT:" right after the clouds end
+   - 3 clickable game cards in the big open sky area
+   - "You have reached the end.. for now" on the bedrock band
+   - footer (socials / brand / contact) on the black band
+   z-index: 1, lowest of the stacked sections, so the mine
+   section's jagged bottom overlaps on top of THIS section's
+   jagged top — same seam trick as the who-behind/mine boundary.
+   =========================== */
+.field-section {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    /* Desktop overlap value — the one that already looks right
+       on PC. Mobile gets its own separate value in the media
+       query below instead of sharing this one. */
+    margin-top: calc(-3vw + 50px);
+}
+.field-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.field-present-text {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    width: 90%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(28px, 5.4vw, 90px);
+}
+.games-row {
+    position: absolute;
+    top: 29%;
+    left: 50%;
+    width: 92%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3%;
+}
+.game-card-link {
+    display: block;
+    flex: 0 0 28%;
+    width: 28%;
+}
+.game-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.25s ease;
+}
+.game-card-link:hover .game-card-img,
+.game-card-link:focus-visible .game-card-img {
+    transform: scale(1.05);
+}
+.field-end-text {
+    position: absolute;
+    top: 87.5%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(16px, 2.6vw, 34px);
+}
+/* Fixed box matching the black band — back to how this worked
+   before, just with less content inside (no copyright/joke
+   line) and smaller gaps, so it fits comfortably without
+   needing to spill outside the box. */
+.field-footer {
+    position: absolute;
+    top: 91.8%;
+    left: 0;
+    width: 100%;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-}
-
-/* FIXED NEWS ITEM */
-.news-item {
-    display: block;
-    background-color: #111;
-    padding: 0;                      /* remove padding around image */
-    border-radius: 12px;
-    width: 100%;                     /* full width on phone */
-    max-width: 450px;
-    text-align: center;
-    text-decoration: none !important;
-    color: white;
-    overflow: hidden;                /* FIX: kills weird extra area */
-    margin: 0 auto;                  /* ensure centered */
-}
-
-/* Make image take full width + centered */
-.news-item img {
-    display: block;                  /* removes inline weirdness */
-    width: 100%;                     /* always full width */
-    height: auto;
-    border-radius: 0;                /* clean rectangle */
-    margin: 0 auto;                  /* center on desktop */
-}
-
-.news-text {
-    padding: 20px;                   /* padding now only for text */
-    font-size: 1.6em;
-    color: white;
-    text-decoration: none !important;
-}
-
-/* Hover effect */
-.news-item:hover {
-    transform: scale(1.03);
-    opacity: 0.95;
-    transition: transform 0.2s, opacity 0.2s;
-}
-
-@media (max-width: 768px) {
-    .news-item {
-        width: 95%;                 /* fits perfectly on phone */
-    }
-
-    .news-text {
-        font-size: 1.3em;
-    }
-}
-/* ===========================
-   MOBILE RESPONSIVENESS
-   =========================== */
-@media (max-width: 768px) {
-
-   .hero {
-        height: 150px; /* smaller panel */
-        margin-top: 70px;
-    }
-
-    .bg-text-row:nth-child(1) { top: 20px; }
-    .bg-text-row:nth-child(2) { top: 60px; }
-    .bg-text-row:nth-child(3) { top: 100px; }
-   
-   .main-title {
-       margin: 10px 0;
-   }
-
-   .section {
-       padding: 0px 20px;
-       
-   }
-   
-    /* Stack sections */
-    .section { flex-direction: column; text-align: center; }
-
-   .section {
-        flex-direction: column !important;
-        text-align: center;
-    }
-
-    /* Make description text larger x2 on phones */
-    .section p { font-size: calc(1.9em * 0.9); }
-
-   .section.reverse {
-        flex-direction: column !important; /* override reverse for mobile */
-    }
-
-    /* Scale down background text rows */
-    .bg-text-row { 
-        font-size: 20px; /* smaller font */
-    }
-
-    /* Reduce gaps between text rows */
-    .bg-text-row:nth-child(1) { top: 10%px; }
-    .bg-text-row:nth-child(2) { top: 40%px; }
-    .bg-text-row:nth-child(3) { top: 70%px; }
-
-    /* Shrink logo 2x */
-    .hero-logo { max-width: 150px; }
-
-   .full-width-image img {
-    width: 230%;
-    height: auto;
-   }
-
-
-   .section.new-text p {
-        font-size: 1.8em;           /* scale down a bit for smaller screens */
-    }
-
-   
-    /* Scale down release text */
-    .release h2 { font-size: calc(2.4em / 2); }
-    .release p { font-size: calc(1.8em / 2); }
-}
-
-
-   /* ===========================
-          FOOTER
-   =========================== */
-.footer {
-    background-color: #000;
-    color: #fff;
-    padding: 50px 20px 20px;
-    margin-top: 80px;
-}
-
-.footer-content {
-    display: flex;
     justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.footer-section {
-    min-width: 180px;
+    gap: clamp(4px, 0.6vw, 8px);
+    color: white;
     text-align: center;
 }
-
-.footer-section h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
+.field-footer-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(16px, 2.4vw, 30px);
 }
-
-.footer-section p {
-    font-size: 1.2em;
+.field-footer-icons {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.6vw, 22px);
 }
-
-.footer-section a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin: 6px 0;
-    font-size: 1.2em;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+.field-footer-icons img {
+    width: clamp(18px, 2.2vw, 28px);
+    height: clamp(18px, 2.2vw, 28px);
+    transition: transform 0.3s;
 }
-
-.footer-section a:hover {
-    opacity: 1;
+.field-footer-icons img.youtube {
+    height: clamp(15px, 1.8vw, 22px);
 }
-
-/* Social icons */
-.footer-icons img {
-    width: 30px;
-    height: 30px;
-    margin: 0 10px;
-    
-    transition: transform 0.2s;
-}
-
-.footer-icons img:hover {
+.field-footer-icons img:hover {
     transform: scale(1.2);
 }
-
-/* Bottom copyright line */
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 1em;
-    opacity: 0.7;
+.field-footer-contact {
+    font-size: clamp(12px, 1.6vw, 10px);
+    font-weight: 400;
 }
-
-/* MOBILE FRIENDLY */
+.field-footer-contact a {
+    color: white;
+    text-decoration: underline;
+}
+/* ===========================
+   MOBILE STYLES (Screen <= 768px)
+   who-behind-bg zooms/crops as before. The photo, text, and
+   banner now live inside .creator-block, which becomes the
+   positioned, absolutely-placed element (anchored on the
+   stone); they stack inside it in normal flow.
+   =========================== */
 @media (max-width: 768px) {
-    .footer-content {
+    .intro-banner {
+        font-size: 1.7em;
+        padding: 12px 15px;
+    }
+
+    .who-behind {
+        overflow: hidden;
+    }
+    .who-behind-bg {
+        width: 200%;
+        max-width: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .creator-block {
+        position: absolute;
+        top: 54%;
+        left: 0;
+        width: 100%;
+    }
+    .creator-photo {
+        position: static;
+        display: block;
+        width: 55%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .creator-text {
+        position: static;
+        width: 85%;
+        height: auto;
+        margin: 6px auto 0;
+        display: flex;
         flex-direction: column;
-        gap: 40px;
+        align-items: center;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+    }
+    .creator-name {
+        font-size: clamp(22px, 7vw, 32px);
+        margin: 0 0 0.2em 0;
+    }
+    .creator-details {
+        font-size: clamp(16px, 5vw, 22px);
+    }
+    .canadian-banner {
+        position: static;
+        display: block;
+        width: 70%;
+        height: auto;
+        margin: 6px auto 0;
+        left: auto;
+        transform: none;
+    }
+
+    .mine-cart {
+        top: 0.7%;
+        width: 80%;
+    }
+    .mine-text {
+        top: 26%;
+        font-size: clamp(20px, 6.5vw, 34px);
+    }
+
+    /* FIELD SECTION — mobile-only overlap value, kept as a
+       fixed clipped box (overflow: hidden, inherited from the
+       base rule — no override needed here anymore) now that
+       the footer below fits inside it without spilling over.
+       Nudge this "-10px" if the seam under the mine section
+       still isn't quite right on your phone. */
+    .field-section {
+        margin-top: calc(-3vw - -10px);
+    }
+
+    .games-row {
+        gap: 2%;
+    }
+
+    .field-footer {
+        gap: clamp(3px, 0.5vw, 6px);
+    }
+    .field-footer-brand {
+        font-size: clamp(14px, 4.5vw, 20px);
+    }
+    .field-footer-icons {
+        gap: clamp(10px, 3vw, 18px);
+    }
+    .field-footer-icons img {
+        width: clamp(18px, 5vw, 24px);
+        height: clamp(18px, 5vw, 24px);
+    }
+    .field-footer-icons img.youtube {
+        height: clamp(15px, 4vw, 20px);
+    }
+    .field-footer-contact {
+        font-size: clamp(11px, 3.4vw, 5px);
     }
 }
 </style>
 </head>
 <body>
-
-<!-- TOP NAVIGATION BAR -->
+<!-- NAVBAR -->
 <div class="navbar">
     <a href="https://sabbigames.com">Sabbi Games</a>
     <div class="nav-icons">
-        <a href="https://www.youtube.com/@denysudod"><img src="assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
-        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+        <a href="https://www.youtube.com/@denysudod" target="_blank" rel="noopener noreferrer"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" width="30" height="24" loading="lazy"></a>
+        <a href="https://www.instagram.com/sabbigames" target="_blank" rel="noopener noreferrer"><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram" width="30" height="30" loading="lazy"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development" target="_blank" rel="noopener noreferrer"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok" width="24" height="24" loading="lazy"></a>
     </div>
 </div>
-
-<!-- HERO SECTION -->
-<div class="hero">
-    <div class="bg-text-row">ZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY</div>
-    <div class="bg-text-row">WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY</div>
-    <div class="bg-text-row">CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY</div>
-
-    <img src="assets/CubeIcon.png" alt="Crazy Way Logo" class="hero-logo">
+<!-- FIRST IMAGE: above the fold — load eagerly, not lazily,
+     and mark it as the priority image so the browser fetches
+     it first (it's the largest visible thing on first paint). -->
+<div class="hero-banner">
+    <img src="/assets/SabbiGamesLogo4.png" alt="Sabbi Games Banner" width="3168" height="516" fetchpriority="high">
+</div>
+<!-- MIDDLE TEXT -->
+<div class="intro-banner">
+    Sabbi Games is here to create free fast-paced games with no ads
 </div>
 
-<!-- MAIN TITLE -->
-<h1 class="main-title">CRAZY WAY</h1>
-
-<!-- FIRST DESCRIPTION SECTION -->
-<div class="section">
-    <p>
-        Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
-    </p>
-    <img src="assets/handportalspacing.png" alt="Hand with Game">
-</div>
-
-<!-- SECOND DESCRIPTION SECTION -->
-<div class="section reverse">
-    <p>
-        Unlock all skins, explore unique worlds, and climb through the leagues! Test your luck at the Claw Machine to win exciting rewards for your gems. Discover fun modifiers that make every game more exciting!
-    </p>
-    <img src="assets/slidingoncubes.png" alt="Second Image">
-</div>
-
-<!-- NEW TEXT SECTION -->
-<div class="section new-text">
-    <p>
-        Bring the chaos of cubes in epic worlds of Crazy Way!
-    </p>
-</div>
-
-<!-- FULL-WIDTH IMAGE SECTION -->
-<div class="full-width-image" style="margin-top: 80px;">
-    <img src="assets/screenshotwall2.png" alt="Screenshots Strip">
-</div>
-
-<!-- RELEASE INFO -->
-<div class="release">
-    <h2>Download the game for free on Android</h2>
-
-    <a href="https://play.google.com/store/apps/details?id=com.Sabbi.CrazyWayGame&hl=en_IN">
-        <img src="assets/Google_Play_Store.png" 
-             alt="Get it on Google Play" 
-             style="width:220px; margin-top:20px;">
-    </a>
-</div>
-
-   <!-- NEWS SECTION -->
-<div class="news-section">
-    <h2 class="news-title">NEWS</h2>
-
-    <div class="news-container">
-
-        <!-- Example News Item -->
-         <div class="news-item">
-           <a href="https://sabbigames.com/news/update1-1notes/" class="news-item" target="_blank">
-               <img src="assets/Update1News.png" alt="Now live">
-               <p class="news-text">NEW UPDATE 1.1 IS NOW LIVE! - Jan 1, 2026</p>
-            <a/>
-        </div>
-       
-        <div class="news-item">
-           <a href="https://sabbigames.com/crazy-way-is-now-live" class="news-item" target="_blank">
-               <img src="assets/Now-Live-Background.png" alt="Now live">
-               <p class="news-text">CRAZY WAY IS NOW LIVE! - Nov 30, 2025</p>
-            <a/>
-        </div>
-
-         
-
-        <!-- Duplicate this block to add more news -->
-        <!--
-        <div class="news-item">
-            <img src="assets/news2.jpg" alt="News Image">
-            <p class="news-text">Your second news headline here.</p>
-        </div>
-        -->
-
-    </div>
-</div>
-
-
-
-<!-- FOOTER -->
-<footer class="footer">
-    <div class="footer-content">
-
-        <div class="footer-section">
-            <h3>Sabbi Games</h3>
-            <p>Games Created With Heart.</p>
-        </div>
-
-        <div class="footer-section">
-            <h3>Links</h3>
-            <a href="https://sabbigames.com">Home</a>
-            <a href="https://play.google.com/store/apps/details?id=com.Sabbi.CrazyWayGame&hl=en_IN">Download Crazy Way</a>
-            <a href="mailto:denys@sabbigames.com">Contact</a>
-        </div>
-
-        <div class="footer-section">
-            <h3>Follow</h3>
-            <div class="footer-icons">
-                <a href="https://www.youtube.com/@denysudod"><img src="assets/youtube-icon.jpg" alt="YouTube"></a>
-                <a href="https://www.instagram.com/sabbigames"><img src="assets/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok"></a>
+<!-- WHO IS BEHIND ALL THIS -->
+<div class="who-behind">
+    <!-- TODO: replace width/height below with photo4.png's real
+         pixel dimensions (right-click the file > Properties >
+         Details on Windows, or Get Info on Mac) so the browser
+         reserves the correct space instead of guessing. -->
+    <img class="who-behind-bg" src="/assets/photo4.png" alt="Who is behind all this?" width="1746" height="2961" loading="lazy">
+    <div class="creator-block">
+        <img class="creator-photo" src="/assets/denysInMail2.png" alt="Denys Udod" width="626" height="973" loading="lazy">
+        <div class="creator-text">
+            <div class="creator-name">Denys Udod</div>
+            <div class="creator-details">
+                CEO of Sabbi Games<br>
+                17-year-old high schooler<br>
+                Lives in Vancouver, BC, Canada<br>
+                Programmer, artist, and filmmaker
             </div>
         </div>
+        <!-- TODO: replace with proudlyCanadian2.png's real
+             dimensions — this is the size of the original
+             proudlyCanadian.png, which may not match the "2" version. -->
+        <img class="canadian-banner" src="/assets/proudlyCanadian2.png" alt="Proudly Canadian" width="1806" height="592" loading="lazy">
+    </div>
+</div>
 
+<!-- MINE CART -->
+<div class="mine-section">
+    <img class="mine-bg" src="/assets/cartBottom.png" alt="Mine tunnel" width="1672" height="776" loading="lazy">
+    <img class="mine-cart" src="/assets/cart.png" alt="Mine cart" width="1408" height="768" loading="lazy">
+    <div class="mine-text">Delivering you quality...</div>
+    <img class="mine-overlay" src="/assets/cartTop.png" alt="" width="1672" height="776" loading="lazy">
+</div>
+
+<!-- FIELD -->
+<div class="field-section">
+    <img class="field-img" src="/assets/field3.png" alt="Sabbi Games field" width="1920" height="4114" loading="lazy">
+
+    <div class="field-present-text">Sabbi Games Presents:</div>
+
+    <div class="games-row">
+        <!-- TODO: confirm these URLs are correct -->
+        <a class="game-card-link" href="https://sabbigames.com/crazyway" target="_blank" rel="noopener noreferrer">
+            <img class="game-card-img" src="/assets/crazy.png" alt="Crazy Way — more info" width="500" height="668" loading="lazy">
+        </a>
+        <a class="game-card-link" href="https://sabbigames.com/tankrush" target="_blank" rel="noopener noreferrer">
+            <img class="game-card-img" src="/assets/tank.png" alt="Tank Rush — more info" width="500" height="668" loading="lazy">
+        </a>
+        <a class="game-card-link" href="https://sabbigames.com/bobloxjump" target="_blank" rel="noopener noreferrer">
+            <img class="game-card-img" src="/assets/boblox.png" alt="Boblox Jump — more info" width="500" height="668" loading="lazy">
+        </a>
     </div>
 
-    <div class="footer-bottom">
-        © 2025 Sabbi Games. All rights reserved.
-    </div>
-</footer>
+    <div class="field-end-text">You have reached the end.. for now</div>
 
+    <div class="field-footer">
+        <div class="field-footer-brand">Sabbi Games</div>
+        <div class="field-footer-icons">
+            <a href="https://www.youtube.com/@Sabbi.Games.Development" target="_blank" rel="noopener noreferrer"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" loading="lazy"></a>
+            <a href="https://www.instagram.com/sabbigames" target="_blank" rel="noopener noreferrer"><img src="/assets/instagram-icon.png" alt="Instagram" loading="lazy"></a>
+            <a href="https://www.tiktok.com/@sabbi.games.development" target="_blank" rel="noopener noreferrer"><img src="/assets/tt-icon.png" alt="TikTok" loading="lazy"></a>
+        </div>
+        <div class="field-footer-contact">
+            Questions or feedback? <a href="mailto:denys@sabbigames.com">denys@sabbigames.com</a>
+        </div>
+    </div>
+</div>
+
+<script>
+const mineSection = document.querySelector('.mine-section');
+const cart = document.querySelector('.mine-cart');
+
+function updateCartPosition() {
+    if (!mineSection || !cart) return;
+    const rect = mineSection.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // Section not in view yet (below the viewport) or already
+    // fully scrolled past (above the viewport) — park the cart
+    // off-screen and do nothing else.
+    if (rect.top >= vh || rect.bottom <= 0) {
+        cart.style.left = '-15%';
+        return;
+    }
+
+    // 0 = section's top edge just reached the bottom of the screen
+    // 0.5 = section is vertically centered in the viewport
+    // 1 = section's bottom edge has reached the top of the screen
+    let progress = (vh - rect.top) / (vh + rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+
+    const leftPercent = -15 + progress * 130; // fully off-left to fully off-right
+    cart.style.left = leftPercent + '%';
+}
+
+// Throttle scroll handling to once per animation frame instead of
+// running on every single scroll event (which can fire dozens of
+// times per second and is unnecessary work for the browser).
+let ticking = false;
+function onScroll() {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            updateCartPosition();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', updateCartPosition);
+window.addEventListener('load', updateCartPosition);
+updateCartPosition();
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
