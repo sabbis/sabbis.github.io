@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crazy Way - Free Mobile Game</title>
+<title>Sabbi Games - Crazy Way</title>
 
 <!-- Google Fonts (closest to Tw Cen MT Condensed) -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
 
 <meta property="og:title" content="Crazy Way - Play for free!">
@@ -205,6 +205,75 @@ html, body {
 
 .release-icons img:hover { transform: scale(1.2); }
 
+
+   /* ===========================
+      NEWS SECTION
+   =========================== */
+.news-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.news-title {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* FIXED NEWS ITEM */
+.news-item {
+    display: block;
+    background-color: #111;
+    padding: 0;                      /* remove padding around image */
+    border-radius: 12px;
+    width: 100%;                     /* full width on phone */
+    max-width: 450px;
+    text-align: center;
+    text-decoration: none !important;
+    color: white;
+    overflow: hidden;                /* FIX: kills weird extra area */
+    margin: 0 auto;                  /* ensure centered */
+}
+
+/* Make image take full width + centered */
+.news-item img {
+    display: block;                  /* removes inline weirdness */
+    width: 100%;                     /* always full width */
+    height: auto;
+    border-radius: 0;                /* clean rectangle */
+    margin: 0 auto;                  /* center on desktop */
+}
+
+.news-text {
+    padding: 20px;                   /* padding now only for text */
+    font-size: 1.6em;
+    color: white;
+    text-decoration: none !important;
+}
+
+/* Hover effect */
+.news-item:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+@media (max-width: 768px) {
+    .news-item {
+        width: 95%;                 /* fits perfectly on phone */
+    }
+
+    .news-text {
+        font-size: 1.3em;
+    }
+}
 /* ===========================
    MOBILE RESPONSIVENESS
    =========================== */
@@ -271,6 +340,83 @@ html, body {
     .release h2 { font-size: calc(2.4em / 2); }
     .release p { font-size: calc(1.8em / 2); }
 }
+
+
+   /* ===========================
+          FOOTER
+   =========================== */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px 20px;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    min-width: 180px;
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    font-size: 1.2em;
+}
+
+.footer-section a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 6px 0;
+    font-size: 1.2em;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+}
+
+/* Social icons */
+.footer-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    
+    transition: transform 0.2s;
+}
+
+.footer-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Bottom copyright line */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1em;
+    opacity: 0.7;
+}
+
+/* MOBILE FRIENDLY */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
 </style>
 </head>
 <body>
@@ -279,9 +425,9 @@ html, body {
 <div class="navbar">
     <a href="https://sabbigames.com">Sabbi Games</a>
     <div class="nav-icons">
-        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
-        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+        <a href="https://www.youtube.com/@denysudod"><img src="assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
+        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
     </div>
 </div>
 
@@ -291,7 +437,7 @@ html, body {
     <div class="bg-text-row">WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY</div>
     <div class="bg-text-row">CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY</div>
 
-    <img src="/assets/CubeIcon.png" alt="Crazy Way Logo" class="hero-logo">
+    <img src="assets/CubeIcon.png" alt="Crazy Way Logo" class="hero-logo">
 </div>
 
 <!-- MAIN TITLE -->
@@ -302,7 +448,7 @@ html, body {
     <p>
         Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
     </p>
-    <img src="/assets/handportalspacing.png" alt="Hand with Game">
+    <img src="assets/handportalspacing.png" alt="Hand with Game">
 </div>
 
 <!-- SECOND DESCRIPTION SECTION -->
@@ -310,7 +456,7 @@ html, body {
     <p>
         Unlock all skins, explore unique worlds, and climb through the leagues! Test your luck at the Claw Machine to win exciting rewards for your gems. Discover fun modifiers that make every game more exciting!
     </p>
-    <img src="/assets/slidingoncubes.png" alt="Second Image">
+    <img src="assets/slidingoncubes.png" alt="Second Image">
 </div>
 
 <!-- NEW TEXT SECTION -->
@@ -322,19 +468,146 @@ html, body {
 
 <!-- FULL-WIDTH IMAGE SECTION -->
 <div class="full-width-image" style="margin-top: 80px;">
-    <img src="/assets/screenshotwall2.png" alt="Screenshots Strip">
+    <img src="assets/screenshotwall2.png" alt="Screenshots Strip">
 </div>
 
 <!-- RELEASE INFO -->
 <div class="release">
-    <h2>THE GAME WILL BE RELEASED ON ANDROID IN SEPTEMBER 2025</h2>
-    <p>FOLLOW ME IF YOU DON’T WANT TO MISS!</p>
-    <div class="release-icons">
-        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
-        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+    <h2>Download the game for free on Android</h2>
+
+    <a href="https://play.google.com/store/apps/details?id=com.Sabbi.CrazyWayGame&hl=en_IN">
+        <img src="assets/Google_Play_Store.png" 
+             alt="Get it on Google Play" 
+             style="width:220px; margin-top:20px;">
+    </a>
+</div>
+
+   <!-- NEWS SECTION -->
+<div class="news-section">
+    <h2 class="news-title">NEWS</h2>
+
+    <div class="news-container">
+
+        <!-- Example News Item -->
+         <div class="news-item">
+           <a href="https://sabbigames.com/news/update1-1notes/" class="news-item" target="_blank">
+               <img src="assets/Update1News.png" alt="Now live">
+               <p class="news-text">NEW UPDATE 1.1 IS NOW LIVE! - Jan 1, 2026</p>
+            <a/>
+        </div>
+       
+        <div class="news-item">
+           <a href="https://sabbigames.com/crazy-way-is-now-live" class="news-item" target="_blank">
+               <img src="assets/Now-Live-Background.png" alt="Now live">
+               <p class="news-text">CRAZY WAY IS NOW LIVE! - Nov 30, 2025</p>
+            <a/>
+        </div>
+
+         
+
+        <!-- Duplicate this block to add more news -->
+        <!--
+        <div class="news-item">
+            <img src="assets/news2.jpg" alt="News Image">
+            <p class="news-text">Your second news headline here.</p>
+        </div>
+        -->
+
     </div>
 </div>
 
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+
+        <div class="footer-section">
+            <h3>Sabbi Games</h3>
+            <p>Games Created With Heart.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Links</h3>
+            <a href="https://sabbigames.com">Home</a>
+            <a href="https://play.google.com/store/apps/details?id=com.Sabbi.CrazyWayGame&hl=en_IN">Download Crazy Way</a>
+            <a href="mailto:denys@sabbigames.com">Contact</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow</h3>
+            <div class="footer-icons">
+                <a href="https://www.youtube.com/@denysudod"><img src="assets/youtube-icon.jpg" alt="YouTube"></a>
+                <a href="https://www.instagram.com/sabbigames"><img src="assets/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 Sabbi Games. All rights reserved.
+    </div>
+</footer>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
