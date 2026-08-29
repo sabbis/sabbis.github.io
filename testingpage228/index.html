@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sabbi Games is here to create awesome, free, fast-paced games with no ads or in-game-purchases. Crazy Way, Tank Rush - were all created by Sabbi.">
+<meta name="robots" content="index, follow">
 <meta property="og:title" content="Sabbi Games - Free mobile games with no ads">
 <meta property="og:description" content="Sabbi Games is here to create awesome, free, fast-paced games with no ads or in-game-purchases. Crazy Way, Tank Rush - were all created by Sabbi.">
 <title>Sabbi Games</title>
@@ -233,11 +235,9 @@ html, body {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    /* Desktop overlap value — same number you had before
-       ("-3vw - -50px"), just written as "+ 50px" instead of the
-       confusing double-negative. This is the value that already
-       looks right on PC; mobile gets its own separate value
-       below in the media query instead of sharing this one. */
+    /* Desktop overlap value — the one that already looks right
+       on PC. Mobile gets its own separate value in the media
+       query below instead of sharing this one. */
     margin-top: calc(-3vw + 50px);
 }
 .field-img {
@@ -299,6 +299,10 @@ html, body {
     letter-spacing: 1px;
     font-size: clamp(16px, 2.6vw, 34px);
 }
+/* Fixed box matching the black band — back to how this worked
+   before, just with less content inside (no copyright/joke
+   line) and smaller gaps, so it fits comfortably without
+   needing to spill outside the box. */
 .field-footer {
     position: absolute;
     top: 91.8%;
@@ -309,7 +313,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(6px, 1vw, 14px);
+    gap: clamp(4px, 0.6vw, 8px);
     color: white;
     text-align: center;
 }
@@ -342,11 +346,6 @@ html, body {
 .field-footer-contact a {
     color: white;
     text-decoration: underline;
-}
-.field-footer-copyright {
-    font-size: clamp(10px, 1.2vw, 14px);
-    font-weight: 400;
-    opacity: 0.7;
 }
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
@@ -423,38 +422,22 @@ html, body {
         font-size: clamp(20px, 6.5vw, 34px);
     }
 
-    /* FIELD SECTION — mobile-only overlap value. This needs its
-       own number, separate from desktop's, because -3vw shrinks
-       a lot on a narrow screen while the "+ 50px" doesn't, so
-       reusing the desktop formula leaves a visible gap here.
-       Starting guess below — nudge the "-10px" until the seam
-       under the mine section disappears on your phone. */
+    /* FIELD SECTION — mobile-only overlap value, kept as a
+       fixed clipped box (overflow: hidden, inherited from the
+       base rule — no override needed here anymore) now that
+       the footer below fits inside it without spilling over.
+       Nudge this "-10px" if the seam under the mine section
+       still isn't quite right on your phone. */
     .field-section {
-        margin-top: calc(-3vw - -10px);
-        /* content below (the footer) is allowed to spill past
-           the image's bottom edge on mobile — see .field-footer
-           below — so this can't clip it off. */
-        overflow: visible;
+        margin-top: calc(-3vw - 10px);
     }
 
     .games-row {
         gap: 2%;
     }
 
-    /* FIELD FOOTER ("credits") — this was the actual problem.
-       It was force-stretched into a fixed box matching the
-       image's black band, which is too short on a narrow phone
-       for 4 stacked lines at a legible size. Rather than keep
-       shrinking the font (which stops being readable), this
-       frees it from that fixed box so it just takes the height
-       its content actually needs — it's fine if that spills a
-       little past the image's bottom edge, since this is the
-       last thing on the page anyway. */
     .field-footer {
-        top: 91.5%;
-        bottom: auto;
-        gap: 6px;
-        padding-bottom: 24px;
+        gap: clamp(3px, 0.5vw, 6px);
     }
     .field-footer-brand {
         font-size: clamp(14px, 4.5vw, 20px);
@@ -472,9 +455,6 @@ html, body {
     .field-footer-contact {
         font-size: clamp(11px, 3.4vw, 15px);
     }
-    .field-footer-copyright {
-        font-size: clamp(9px, 2.6vw, 12px);
-    }
 }
 </style>
 </head>
@@ -483,9 +463,9 @@ html, body {
 <div class="navbar">
     <a href="https://sabbigames.com">Sabbi Games</a>
     <div class="nav-icons">
-        <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" width="30" height="24" loading="lazy"></a>
-        <a href="https://www.instagram.com/sabbigames"><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram" width="30" height="30" loading="lazy"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok" width="24" height="24" loading="lazy"></a>
+        <a href="https://www.youtube.com/@Sabbi.Games.Development" target="_blank" rel="noopener noreferrer"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" width="30" height="24" loading="lazy"></a>
+        <a href="https://www.instagram.com/sabbigames" target="_blank" rel="noopener noreferrer"><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram" width="30" height="30" loading="lazy"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development" target="_blank" rel="noopener noreferrer"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok" width="24" height="24" loading="lazy"></a>
     </div>
 </div>
 <!-- FIRST IMAGE: above the fold — load eagerly, not lazily,
@@ -540,13 +520,13 @@ html, body {
 
     <div class="games-row">
         <!-- TODO: confirm these URLs are correct -->
-        <a class="game-card-link" href="https://sabbigames.com/crazyway">
+        <a class="game-card-link" href="https://sabbigames.com/crazyway" target="_blank" rel="noopener noreferrer">
             <img class="game-card-img" src="/assets/crazy.png" alt="Crazy Way — more info" width="500" height="668" loading="lazy">
         </a>
-        <a class="game-card-link" href="https://sabbigames.com/tankrush">
+        <a class="game-card-link" href="https://sabbigames.com/tankrush" target="_blank" rel="noopener noreferrer">
             <img class="game-card-img" src="/assets/tank.png" alt="Tank Rush — more info" width="500" height="668" loading="lazy">
         </a>
-        <a class="game-card-link" href="https://sabbigames.com/bobloxjump">
+        <a class="game-card-link" href="https://sabbigames.com/bobloxjump" target="_blank" rel="noopener noreferrer">
             <img class="game-card-img" src="/assets/boblox.png" alt="Boblox Jump — more info" width="500" height="668" loading="lazy">
         </a>
     </div>
@@ -556,14 +536,13 @@ html, body {
     <div class="field-footer">
         <div class="field-footer-brand">Sabbi Games</div>
         <div class="field-footer-icons">
-            <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" loading="lazy"></a>
-            <a href="https://www.instagram.com/sabbigames"><img src="/assets/instagram-icon.png" alt="Instagram" loading="lazy"></a>
-            <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" loading="lazy"></a>
+            <a href="https://www.youtube.com/@Sabbi.Games.Development" target="_blank" rel="noopener noreferrer"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" loading="lazy"></a>
+            <a href="https://www.instagram.com/sabbigames" target="_blank" rel="noopener noreferrer"><img src="/assets/instagram-icon.png" alt="Instagram" loading="lazy"></a>
+            <a href="https://www.tiktok.com/@sabbi.games.development" target="_blank" rel="noopener noreferrer"><img src="/assets/tt-icon.png" alt="TikTok" loading="lazy"></a>
         </div>
         <div class="field-footer-contact">
             Questions or feedback? <a href="mailto:denys@sabbigames.com">denys@sabbigames.com</a>
         </div>
-        <div class="field-footer-copyright">&copy; 2026 Sabbi Games. Made using shit and sticks but with love.</div>
     </div>
 </div>
 
