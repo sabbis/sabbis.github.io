@@ -97,13 +97,13 @@ html, body {
    WHO IS BEHIND ALL THIS (PHOTO4 + CREATOR OVERLAY)
    DESKTOP: photo + text overlaid side-by-side on the stone,
    Canadian ribbon centered below both.
-   z-index: 2 so photo4's jagged bottom edge sits ON TOP of the
+   z-index: 3 so photo4's jagged bottom edge sits ON TOP of the
    mine section below it, hiding the seam from photo4's side.
    =========================== */
 .who-behind {
     width: 100%;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 .who-behind-bg {
     width: 100%;
@@ -165,13 +165,14 @@ html, body {
    Layer order (bottom to top): mine background w/ rails,
    rolling cart, "Delivering you quality..." text, jagged rock
    overlay that hides most of the track except a few gaps.
-   z-index: 1 (lower than .who-behind's z-index: 2) so photo4
-   overlaps ON TOP of this section, not the other way around.
+   z-index: 2 (lower than .who-behind's z-index: 3, higher than
+   .field-section's z-index: 1) so each section's jagged top
+   edge tucks under the one above it, hiding the seams.
    =========================== */
 .mine-section {
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
     /* -3vw scales the overlap with the image itself; the -40px
        is the extra fixed nudge. Change ONLY the "40px" number
@@ -217,16 +218,133 @@ html, body {
     pointer-events: none;
 }
 /* ===========================
-   FIELD SECTION (NEXT GRAPHIC)
+   FIELD SECTION (field3.png)
+   Layout (top to bottom, all against the one tall image):
+   - "SABBI GAMES PRESENT:" right after the clouds end
+   - 3 clickable game cards in the big open sky area
+   - "You have reached the end.. for now" on the bedrock band
+   - footer (socials / brand / contact) on the black band
+   z-index: 1, lowest of the stacked sections, so the mine
+   section's jagged bottom overlaps on top of THIS section's
+   jagged top — same seam trick as the who-behind/mine boundary.
    =========================== */
 .field-section {
     width: 100%;
     position: relative;
+    z-index: 1;
+    overflow: hidden;
+    /* Same idea as .mine-section's overlap — change only the
+       "20px" number to nudge this section further up/down
+       under the mine section above it. */
+    margin-top: calc(-3vw - 20px);
 }
 .field-img {
     width: 100%;
     height: auto;
     display: block;
+}
+.field-present-text {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    width: 90%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(28px, 5.4vw, 90px);
+}
+.games-row {
+    position: absolute;
+    top: 29%;
+    left: 50%;
+    width: 92%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3%;
+}
+.game-card-link {
+    display: block;
+    flex: 0 0 28%;
+    width: 28%;
+}
+.game-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.25s ease;
+}
+.game-card-link:hover .game-card-img,
+.game-card-link:focus-visible .game-card-img {
+    transform: scale(1.05);
+}
+.field-end-text {
+    position: absolute;
+    top: 87.5%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.75);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(16px, 2.6vw, 34px);
+}
+.field-footer {
+    position: absolute;
+    top: 91.8%;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(6px, 1vw, 14px);
+    color: white;
+    text-align: center;
+}
+.field-footer-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(16px, 2.4vw, 30px);
+}
+.field-footer-icons {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.6vw, 22px);
+}
+.field-footer-icons img {
+    width: clamp(18px, 2.2vw, 28px);
+    height: clamp(18px, 2.2vw, 28px);
+    transition: transform 0.3s;
+}
+.field-footer-icons img.youtube {
+    height: clamp(15px, 1.8vw, 22px);
+}
+.field-footer-icons img:hover {
+    transform: scale(1.2);
+}
+.field-footer-contact {
+    font-size: clamp(12px, 1.6vw, 18px);
+    font-weight: 400;
+}
+.field-footer-contact a {
+    color: white;
+    text-decoration: underline;
+}
+.field-footer-copyright {
+    font-size: clamp(10px, 1.2vw, 14px);
+    font-weight: 400;
+    opacity: 0.7;
 }
 /* ===========================
    MOBILE STYLES (Screen <= 768px)
@@ -302,6 +420,10 @@ html, body {
         top: 26%;
         font-size: clamp(20px, 6.5vw, 34px);
     }
+
+    .games-row {
+        gap: 2%;
+    }
 }
 </style>
 </head>
@@ -360,10 +482,38 @@ html, body {
 </div>
 
 <!-- FIELD -->
-<!-- TODO: replace width/height below with field.png's real
-     pixel dimensions once you have the file's actual size. -->
 <div class="field-section">
-    <img class="field-img" src="/assets/field.png" alt="Field" width="1920" height="1080" loading="lazy">
+    <img class="field-img" src="/assets/field3.png" alt="Sabbi Games field" width="1920" height="4114" loading="lazy">
+
+    <div class="field-present-text">Sabbi Games Present:</div>
+
+    <div class="games-row">
+        <!-- TODO: confirm these URLs are correct -->
+        <a class="game-card-link" href="https://sabbigames.com/crazyway">
+            <img class="game-card-img" src="/assets/game1.png" alt="Crazy Way — more info" width="500" height="668" loading="lazy">
+        </a>
+        <a class="game-card-link" href="https://sabbigames.com/bobloxjump">
+            <img class="game-card-img" src="/assets/game2.png" alt="Boblox Jump — more info" width="500" height="668" loading="lazy">
+        </a>
+        <a class="game-card-link" href="https://sabbigames.com/tankrush">
+            <img class="game-card-img" src="/assets/game3.png" alt="Tank Rush — more info" width="500" height="668" loading="lazy">
+        </a>
+    </div>
+
+    <div class="field-end-text">You have reached the end.. for now</div>
+
+    <div class="field-footer">
+        <div class="field-footer-brand">Sabbi Games</div>
+        <div class="field-footer-icons">
+            <a href="https://www.youtube.com/@Sabbi.Games.Development"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube" loading="lazy"></a>
+            <a href="https://www.instagram.com/sabbigames"><img src="/assets/instagram-icon.png" alt="Instagram" loading="lazy"></a>
+            <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" loading="lazy"></a>
+        </div>
+        <div class="field-footer-contact">
+            Questions or feedback? <a href="mailto:denys@sabbigames.com">denys@sabbigames.com</a>
+        </div>
+        <div class="field-footer-copyright">&copy; 2026 Sabbi Games. Made with dirt, rocks and way too much coffee.</div>
+    </div>
 </div>
 
 <script>
