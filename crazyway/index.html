@@ -8,15 +8,13 @@
 <!-- Google Fonts (closest to Tw Cen MT Condensed) -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/png" href="favicon.png">
-
+<link rel="icon" type="image/png" href="/favicon.png">
 
 <meta property="og:title" content="Crazy Way - Play for free!">
 <meta property="og:description" content="Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal.">
 <meta property="og:image" content="https://sabbigames.com/assets/CubeIcon.png">
-<meta property="og:url" content="https://sabbigames.com">
+<meta property="og:url" content="https://sabbigames.com/crazyway/">
 <meta property="og:type" content="website">
-   
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JF3CYNTV0"></script>
@@ -28,7 +26,6 @@
   gtag('config', 'G-5JF3CYNTV0');
 </script>
 
-   
 <style>
 /* ===========================
    GLOBAL STYLES
@@ -57,7 +54,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px; /* increased by 10px top/bottom */
+    padding: 20px 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -78,19 +75,18 @@ html, body {
     transition: transform 0.3s;
 }
 
-/* Adjust specific logos (YouTube/TikTok) */
 .nav-icons img.youtube {
-    height: 24px; /* slightly shorter */
+    height: 24px;
 }
 
 .nav-icons img.tiktok {
-    width: 24px; /* slightly smaller */
+    width: 24px;
     height: 24px;
 }
 
 .instagram {
     position: relative;
-    top: +3px; /* moves Instagram icon 3px up */
+    top: 3px;
 }
 
 .nav-icons img:hover {
@@ -153,7 +149,6 @@ html, body {
     max-width: 400px;
     width: 100%;
     height: auto;
-    
 }
 
 .section p {
@@ -168,14 +163,14 @@ html, body {
    FULL-WIDTH IMAGE SECTION
    =========================== */
 .section.new-text {
-    flex-direction: column;       /* stack items vertically */
-    text-align: center;           /* center text horizontally */
-    margin: 80px 0;               /* space above/below */
+    flex-direction: column;
+    text-align: center;
+    margin: 80px 0;
 }
 
 .section.new-text p {
-    font-size: 2.8em;             /* slightly bigger than normal text */
-    font-weight: 700;             /* bold */
+    font-size: 2.8em;
+    font-weight: 700;
     line-height: 1.4;
 }
    
@@ -205,9 +200,8 @@ html, body {
 
 .release-icons img:hover { transform: scale(1.2); }
 
-
-   /* ===========================
-      NEWS SECTION
+/* ===========================
+   NEWS SECTION
    =========================== */
 .news-section {
     padding: 40px 20px;
@@ -227,38 +221,35 @@ html, body {
     gap: 40px;
 }
 
-/* FIXED NEWS ITEM */
 .news-item {
     display: block;
     background-color: #111;
-    padding: 0;                      /* remove padding around image */
+    padding: 0;
     border-radius: 12px;
-    width: 100%;                     /* full width on phone */
+    width: 100%;
     max-width: 450px;
     text-align: center;
     text-decoration: none !important;
     color: white;
-    overflow: hidden;                /* FIX: kills weird extra area */
-    margin: 0 auto;                  /* ensure centered */
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-/* Make image take full width + centered */
 .news-item img {
-    display: block;                  /* removes inline weirdness */
-    width: 100%;                     /* always full width */
+    display: block;
+    width: 100%;
     height: auto;
-    border-radius: 0;                /* clean rectangle */
-    margin: 0 auto;                  /* center on desktop */
+    border-radius: 0;
+    margin: 0 auto;
 }
 
 .news-text {
-    padding: 20px;                   /* padding now only for text */
+    padding: 20px;
     font-size: 1.6em;
     color: white;
     text-decoration: none !important;
 }
 
-/* Hover effect */
 .news-item:hover {
     transform: scale(1.03);
     opacity: 0.95;
@@ -267,20 +258,20 @@ html, body {
 
 @media (max-width: 768px) {
     .news-item {
-        width: 95%;                 /* fits perfectly on phone */
+        width: 95%;
     }
 
     .news-text {
         font-size: 1.3em;
     }
 }
+
 /* ===========================
    MOBILE RESPONSIVENESS
    =========================== */
 @media (max-width: 768px) {
-
-   .hero {
-        height: 150px; /* smaller panel */
+    .hero {
+        height: 150px;
         margin-top: 70px;
     }
 
@@ -288,62 +279,39 @@ html, body {
     .bg-text-row:nth-child(2) { top: 60px; }
     .bg-text-row:nth-child(3) { top: 100px; }
    
-   .main-title {
-       margin: 10px 0;
-   }
+    .main-title {
+        margin: 10px 0;
+    }
 
-   .section {
-       padding: 0px 20px;
-       
-   }
-   
-    /* Stack sections */
-    .section { flex-direction: column; text-align: center; }
-
-   .section {
+    .section {
+        padding: 0px 20px;
         flex-direction: column !important;
         text-align: center;
     }
 
-    /* Make description text larger x2 on phones */
     .section p { font-size: calc(1.9em * 0.9); }
 
-   .section.reverse {
-        flex-direction: column !important; /* override reverse for mobile */
-    }
-
-    /* Scale down background text rows */
     .bg-text-row { 
-        font-size: 20px; /* smaller font */
+        font-size: 20px;
     }
 
-    /* Reduce gaps between text rows */
-    .bg-text-row:nth-child(1) { top: 10%px; }
-    .bg-text-row:nth-child(2) { top: 40%px; }
-    .bg-text-row:nth-child(3) { top: 70%px; }
-
-    /* Shrink logo 2x */
     .hero-logo { max-width: 150px; }
 
-   .full-width-image img {
-    width: 230%;
-    height: auto;
-   }
-
-
-   .section.new-text p {
-        font-size: 1.8em;           /* scale down a bit for smaller screens */
+    .full-width-image img {
+        width: 100%;
+        height: auto;
     }
 
-   
-    /* Scale down release text */
+    .section.new-text p {
+        font-size: 1.8em;
+    }
+
     .release h2 { font-size: calc(2.4em / 2); }
     .release p { font-size: calc(1.8em / 2); }
 }
 
-
-   /* ===========================
-          FOOTER
+/* ===========================
+   FOOTER
    =========================== */
 .footer {
     background-color: #000;
@@ -389,12 +357,10 @@ html, body {
     opacity: 1;
 }
 
-/* Social icons */
 .footer-icons img {
     width: 30px;
     height: 30px;
     margin: 0 10px;
-    
     transition: transform 0.2s;
 }
 
@@ -402,7 +368,6 @@ html, body {
     transform: scale(1.2);
 }
 
-/* Bottom copyright line */
 .footer-bottom {
     text-align: center;
     margin-top: 40px;
@@ -410,7 +375,6 @@ html, body {
     opacity: 0.7;
 }
 
-/* MOBILE FRIENDLY */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -425,9 +389,9 @@ html, body {
 <div class="navbar">
     <a href="https://sabbigames.com">Sabbi Games</a>
     <div class="nav-icons">
-        <a href="https://www.youtube.com/@denysudod"><img src="assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
-        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
-        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
+        <a href="https://www.youtube.com/@denysudod"><img src="/assets/youtube-icon.jpg" alt="YouTube" class="youtube"></a>
+        <a href="https://www.instagram.com/sabbigames?igsh=MTgyc2IzNXBkbnRxag=="><img src="/assets/instagram-icon.png" alt="Instagram" class="instagram"></a>
+        <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok" class="tiktok"></a>
     </div>
 </div>
 
@@ -437,7 +401,7 @@ html, body {
     <div class="bg-text-row">WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY</div>
     <div class="bg-text-row">CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY.CRAZY.WAY</div>
 
-    <img src="assets/CubeIcon.png" alt="Crazy Way Logo" class="hero-logo">
+    <img src="/assets/CubeIcon.png" alt="Crazy Way Logo" class="hero-logo">
 </div>
 
 <!-- MAIN TITLE -->
@@ -448,7 +412,7 @@ html, body {
     <p>
         Crazy Way is a fast-paced puzzle game. You are a cube that slides across the grid, bouncing from wall to wall until you reach the portal. Every move is important because the time is limited! The game is fully free to play with no ads or purchases.
     </p>
-    <img src="assets/handportalspacing.png" alt="Hand with Game">
+    <img src="/assets/handportalspacing.png" alt="Hand with Game">
 </div>
 
 <!-- SECOND DESCRIPTION SECTION -->
@@ -456,7 +420,7 @@ html, body {
     <p>
         Unlock all skins, explore unique worlds, and climb through the leagues! Test your luck at the Claw Machine to win exciting rewards for your gems. Discover fun modifiers that make every game more exciting!
     </p>
-    <img src="assets/slidingoncubes.png" alt="Second Image">
+    <img src="/assets/slidingoncubes.png" alt="Second Image">
 </div>
 
 <!-- NEW TEXT SECTION -->
@@ -468,7 +432,7 @@ html, body {
 
 <!-- FULL-WIDTH IMAGE SECTION -->
 <div class="full-width-image" style="margin-top: 80px;">
-    <img src="assets/screenshotwall2.png" alt="Screenshots Strip">
+    <img src="/assets/screenshotwall2.png" alt="Screenshots Strip">
 </div>
 
 <!-- RELEASE INFO -->
@@ -476,52 +440,36 @@ html, body {
     <h2>Download the game for free on Android</h2>
 
     <a href="https://play.google.com/store/apps/details?id=com.Sabbi.CrazyWayGame&hl=en_IN">
-        <img src="assets/Google_Play_Store.png" 
+        <img src="/assets/Google_Play_Store.png" 
              alt="Get it on Google Play" 
              style="width:220px; margin-top:20px;">
     </a>
 </div>
 
-   <!-- NEWS SECTION -->
+<!-- NEWS SECTION -->
 <div class="news-section">
     <h2 class="news-title">NEWS</h2>
 
     <div class="news-container">
-
-        <!-- Example News Item -->
-         <div class="news-item">
-           <a href="https://sabbigames.com/news/update1-1notes/" class="news-item" target="_blank">
-               <img src="assets/Update1News.png" alt="Now live">
-               <p class="news-text">NEW UPDATE 1.1 IS NOW LIVE! - Jan 1, 2026</p>
-            <a/>
-        </div>
-       
         <div class="news-item">
-           <a href="https://sabbigames.com/crazy-way-is-now-live" class="news-item" target="_blank">
-               <img src="assets/Now-Live-Background.png" alt="Now live">
-               <p class="news-text">CRAZY WAY IS NOW LIVE! - Nov 30, 2025</p>
-            <a/>
+            <a href="https://sabbigames.com/news/update1-1notes/" class="news-item" target="_blank">
+                <img src="/assets/Update1News.png" alt="Now live">
+                <p class="news-text">NEW UPDATE 1.1 IS NOW LIVE! - Jan 1, 2026</p>
+            </a>
         </div>
-
-         
-
-        <!-- Duplicate this block to add more news -->
-        <!--
+        
         <div class="news-item">
-            <img src="assets/news2.jpg" alt="News Image">
-            <p class="news-text">Your second news headline here.</p>
+            <a href="https://sabbigames.com/crazy-way-is-now-live" class="news-item" target="_blank">
+                <img src="/assets/Now-Live-Background.png" alt="Now live">
+                <p class="news-text">CRAZY WAY IS NOW LIVE! - Nov 30, 2025</p>
+            </a>
         </div>
-        -->
-
     </div>
 </div>
-
-
 
 <!-- FOOTER -->
 <footer class="footer">
     <div class="footer-content">
-
         <div class="footer-section">
             <h3>Sabbi Games</h3>
             <p>Games Created With Heart.</p>
@@ -537,12 +485,11 @@ html, body {
         <div class="footer-section">
             <h3>Follow</h3>
             <div class="footer-icons">
-                <a href="https://www.youtube.com/@denysudod"><img src="assets/youtube-icon.jpg" alt="YouTube"></a>
-                <a href="https://www.instagram.com/sabbigames"><img src="assets/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@sabbi.games.development"><img src="assets/tt-icon.png" alt="TikTok"></a>
+                <a href="https://www.youtube.com/@denysudod"><img src="/assets/youtube-icon.jpg" alt="YouTube"></a>
+                <a href="https://www.instagram.com/sabbigames"><img src="/assets/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@sabbi.games.development"><img src="/assets/tt-icon.png" alt="TikTok"></a>
             </div>
         </div>
-
     </div>
 
     <div class="footer-bottom">
@@ -552,62 +499,3 @@ html, body {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
