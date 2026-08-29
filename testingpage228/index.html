@@ -234,9 +234,14 @@ html, body {
     z-index: 1;
     overflow: hidden;
     /* Same idea as .mine-section's overlap — change only the
-       "20px" number to nudge this section further up/down
-       under the mine section above it. */
-    margin-top: calc(-3vw - -50px);
+       "50px" number to nudge this section further up/down
+       under the mine section above it.
+       (Fixed a sign error here: "- -50px" was adding 50px of
+       gap instead of removing it — that's what was creating
+       the visible seam, worse on mobile because -3vw shrinks
+       on narrow screens while a fixed px offset doesn't, so
+       the wrong-direction 50px dominated there.) */
+    margin-top: calc(-3vw - 50px);
 }
 .field-img {
     width: 100%;
@@ -421,8 +426,43 @@ html, body {
         font-size: clamp(20px, 6.5vw, 34px);
     }
 
+    /* FIELD SECTION — mobile text sizing.
+       These were previously using the same clamp() values as
+       desktop, but the clamp *minimums* were tuned for desktop
+       and don't shrink enough on a narrow phone screen — they
+       were overflowing/wrapping and colliding with the game
+       cards below, and the footer's stacked lines were taller
+       than the black band's actual height on mobile. */
+    .field-present-text {
+        font-size: clamp(15px, 5.5vw, 28px);
+    }
     .games-row {
         gap: 2%;
+    }
+    .field-end-text {
+        font-size: clamp(10px, 3.2vw, 18px);
+    }
+    .field-footer {
+        gap: clamp(3px, 0.8vw, 8px);
+    }
+    .field-footer-brand {
+        font-size: clamp(11px, 4vw, 18px);
+    }
+    .field-footer-icons {
+        gap: clamp(8px, 2.4vw, 16px);
+    }
+    .field-footer-icons img {
+        width: clamp(13px, 3.6vw, 20px);
+        height: clamp(13px, 3.6vw, 20px);
+    }
+    .field-footer-icons img.youtube {
+        height: clamp(11px, 3vw, 16px);
+    }
+    .field-footer-contact {
+        font-size: clamp(9px, 2.8vw, 13px);
+    }
+    .field-footer-copyright {
+        font-size: clamp(7px, 2.2vw, 10px);
     }
 }
 </style>
